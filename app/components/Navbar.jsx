@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <div>
       {/* Navbar */}
-      <nav className="bg-[#2B4B77] text-white px-6 py-4 md:px-10 md:py-6">
+      <nav className="bg-[#2B4B77] text-white px-6 py-4 md:w-auto">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
@@ -72,7 +72,7 @@ export default function Navbar() {
 
 
       {/* Content Below Navbar - Same BG Color */}
-      <main className="bg-[#2B4B77] text-white py-2 px-10 md:px-10">
+      <main className="bg-[#2B4B77] text-white py-2 px-2">
 
         {/* Section with Image & Text */}
         <div className="mb-12 flex flex-col md:flex-row items-center px-4 md:px-10">
