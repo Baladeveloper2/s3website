@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { X } from 'lucide-react';
+import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
@@ -603,7 +604,7 @@ export default function Navbar() {
       <form className="space-y-6">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="text-gray-700 font-semibold">Your Name</label>
+            <label htmlFor="name" className="text-gray-700 font-semibold">Name</label>
             <input
               type="text"
               id="name"
@@ -613,7 +614,7 @@ export default function Navbar() {
             />
           </div>
           <div>
-            <label htmlFor="email" className="text-gray-700 font-semibold">mohankumar@s3techindia.com</label>
+            <label htmlFor="email" className="text-gray-700 font-semibold">Email Address</label>
             <input
               type="email"
               id="email"
@@ -625,7 +626,7 @@ export default function Navbar() {
         </div>
 
         <div>
-          <label htmlFor="phone" className="text-gray-700 font-semibold">Your Mobile Number</label>
+          <label htmlFor="phone" className="text-gray-700 font-semibold">Mobile Number</label>
           <input
             type="tel"
             id="phone"
@@ -705,22 +706,22 @@ export default function Navbar() {
 
       {/* Social Media Links */}
       <div>
-        <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
-        <div className="flex space-x-4">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
-            <i className="fab fa-facebook-f text-xl"></i>
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
-            <i className="fab fa-twitter text-xl"></i>
-          </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
-            <i className="fab fa-linkedin-in text-xl"></i>
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
-            <i className="fab fa-instagram text-xl"></i>
-          </a>
-        </div>
+      <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
+      <div className="flex space-x-4">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+          <FontAwesomeIcon icon={faFacebookF} className="text-xl" />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+          <FontAwesomeIcon icon={faTwitter} className="text-xl" />
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+          <FontAwesomeIcon icon={faLinkedinIn} className="text-xl" />
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+          <FontAwesomeIcon icon={faInstagram} className="text-xl" />
+        </a>
       </div>
+    </div>
     </div>
 
     {/* Copyright Section */}
