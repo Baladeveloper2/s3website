@@ -575,7 +575,7 @@ export default function Navbar() {
 
     {/* Right Side: Google Map */}
     <div>
-      <h3 className="text-xl font-semibold text-white text-center mb-10 mr-5 md:w-auto w-full">Our Office on Map</h3>
+      <h3 className="text-2xl font-semibold text-white text-center mb-10 mr-5 md:w-auto w-full">Our Office on Map</h3>
       <div className="h-64 px-5">
       <div className="w-full h-[450px]">
       <div className="w-full h-[450px]">
@@ -595,13 +595,13 @@ export default function Navbar() {
 
   </div>
 </section>
-<section id="apply" className="py-16 px-8 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
+<section id="apply" className="py-14 md:px-4 px-0 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
   <div className="max-w-7xl mx-auto">
     <h2 className="text-4xl font-bold text-center mt-28">Apply Now</h2>
     <p className="text-lg text-center mb-12">Fill out the form below to apply for our services.</p>
 
-    <div className="bg-white p-8 rounded-xl shadow-xl">
-      <form className="space-y-6">
+    <div className="bg-white p-6 rounded-xl shadow-xl">
+      <form className="space-y-8">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="text-gray-700 font-semibold">Name</label>
@@ -725,7 +725,7 @@ export default function Navbar() {
     </div>
 
     {/* Copyright Section */}
-    <div className="text-center text-sm mt-12">
+    <div className="text-center text-sm mt-8">
       <p>&copy; {new Date().getFullYear()} S3-PRZ RESEARCH & PUBLICATION. All Rights Reserved.</p>
     </div>
   </div>
