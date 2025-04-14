@@ -6,134 +6,142 @@ import Link from "next/link";
 import logo from "../../public/S3-logo.jpeg";
 import hero from "../../public/hero-img.png";
 import { motion } from "framer-motion"; // Import Framer Motion
+import { useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { X } from 'lucide-react';
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div>
       {/* Navbar */}
-      <nav className="bg-[#2B4B77] text-white px-10 py-12 flex items-center justify-between">
-        {/* Left Logo Section */}
+      <nav className="bg-[#2B4B77] text-white px-6 py-4 md:px-10 md:py-6">
+      <div className="flex items-center justify-between">
+        {/* Logo */}
         <div className="flex items-center">
           <Image
-            src={logo} // Replace with your actual logo path
+            src={logo} // replace with your logo path
             alt="S3 Logo"
-            width={200}
-            height={150}
-            className="mr-12"
+            width={150}
+            height={100}
+            className="mr-4"
           />
         </div>
 
-        {/* Navigation Links */}
-        <ul className="flex space-x-6 text-lg">
+        {/* Hamburger Icon for Mobile */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <X size={28} /> : <FontAwesomeIcon icon={faBars} />}
+        </button>
+
+        {/* Desktop Nav Links */}
+        <ul className="hidden md:flex space-x-6 text-lg">
           <li>
             <Link href="/" className="text-blue-300 font-semibold hover:text-white">
               Home
             </Link>
           </li>
-          <li><a href="#about" className="hover:text-blue-300">about</a></li>
+          <li><a href="#about" className="hover:text-blue-300">About</a></li>
           <li><a href="#publications" className="hover:text-blue-300">Publications</a></li>
-          <li>
-            <Link href="#connect" className="hover:text-blue-300">Connect Us</Link>
-          </li>
-          <li>
-            <Link href="#workshops" className="hover:text-blue-300">Workshop & Events</Link>
-          </li>
-          <li>
-            <Link href="#collaborations" className="hover:text-blue-300">Collaborations</Link>
-          </li>
-          <li>
-            <Link href="#technologies" className="hover:text-blue-300">Research & Development</Link>
-          </li>
-          <li>
-            <Link href="#contact" className="hover:text-blue-300">Contact</Link>
-          </li>
-          <li>
-            <Link href="#payments" className="hover:text-blue-300">Payments</Link>
-          </li>
+          <li><Link href="#connect" className="hover:text-blue-300">Connect Us</Link></li>
+          <li><Link href="#workshops" className="hover:text-blue-300">Workshop & Events</Link></li>
+          <li><Link href="#collaborations" className="hover:text-blue-300">Collaborations</Link></li>
+          <li><Link href="#technologies" className="hover:text-blue-300">Research & Development</Link></li>
+          <li><Link href="#contact" className="hover:text-blue-300">Contact</Link></li>
+          <li><Link href="#payments" className="hover:text-blue-300">Payments</Link></li>
         </ul>
-      </nav>
+      </div>
+
+      {/* Mobile Nav Links */}
+      {menuOpen && (
+        <ul className="md:hidden mt-4 space-y-4 text-lg">
+          <li><Link href="/" className="text-blue-300 font-semibold hover:text-white">Home</Link></li>
+          <li><a href="#about" className="hover:text-blue-300">About</a></li>
+          <li><a href="#publications" className="hover:text-blue-300">Publications</a></li>
+          <li><Link href="#connect" className="hover:text-blue-300">Connect Us</Link></li>
+          <li><Link href="#workshops" className="hover:text-blue-300">Workshop & Events</Link></li>
+          <li><Link href="#collaborations" className="hover:text-blue-300">Collaborations</Link></li>
+          <li><Link href="#technologies" className="hover:text-blue-300">Research & Development</Link></li>
+          <li><Link href="#contact" className="hover:text-blue-300">Contact</Link></li>
+          <li><Link href="#payments" className="hover:text-blue-300">Payments</Link></li>
+        </ul>
+      )}
+    </nav>
+
 
       {/* Content Below Navbar - Same BG Color */}
-      <main className="bg-[#2B4B77] text-white py-2 px-10">
+      <main className="bg-[#2B4B77] text-white py-2 px-10 md:px-10">
 
         {/* Section with Image & Text */}
-        <div className="mb-12 flex flex-col md:flex-row items-center">
-          {/* Left Side Text */}
-          
-          <div className="md:w-1/2 p-5">
-          <h3 className="text-3xl text-gray-400 font-semibold mt-1 display-flex justify-end">
-            ISO 9001:2015 Certified
-          </h3>
-          <h1 className="text-5xl text-white font-semibold mt-3 display-flex justify-end">
-          Better Solutions For Your Research
-          </h1>
-            <h2 className="text-2xl font-bold text-gray-400 mt-4">
-            We are team of researchers helping in all directions of 
-            research.
-            </h2>
-            <ul className="flex justify-center space-x-11 text-lg mt-8">
-  <li>
-  <Link href="">
-  <button 
-    className="bg-[#47b2e4] text-white px-8 py-3 rounded-full 
-      hover:bg-[#369acb] transition-all duration-300"
-  >
-    Call for Chapters
-  </button>
-</Link>
+        <div className="mb-12 flex flex-col md:flex-row items-center px-4 md:px-10">
+  {/* Left Side Text */}
+  <div className="w-full md:w-1/2 p-4 md:p-5 text-center md:text-left">
+    <h3 className="text-2xl md:text-3xl text-gray-400 font-semibold">
+      ISO 9001:2015 Certified
+    </h3>
+    <h1 className="text-3xl md:text-5xl text-white font-semibold mt-3">
+      Better Solutions For Your Research
+    </h1>
+    <h2 className="text-lg md:text-2xl font-bold text-gray-400 mt-4">
+      We are a team of researchers helping in all directions of research.
+    </h2>
+    
+    <ul className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 text-base md:text-lg mt-8">
+      <li>
+        <Link href="">
+          <button className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#369acb] transition-all duration-300 w-full sm:w-auto">
+            Call for Chapters
+          </button>
+        </Link>
+      </li>
+      <li>
+        <Link href="">
+          <button className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#369acb] transition-all duration-300 w-full sm:w-auto">
+            Download Brochures
+          </button>
+        </Link>
+      </li>
+      <li>
+        <Link href="">
+          <button className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#369acb] transition-all duration-300 w-full sm:w-auto">
+            Plagiarism Checking
+          </button>
+        </Link>
+      </li>
+    </ul>
+  </div>
 
-  </li>
-  <li>
-  <Link href="">
-  <button 
-    className="bg-[#47b2e4] text-white px-6 py-3 rounded-full 
-      hover:bg-[#369acb] transition-all duration-300"
-  >
-   Download Brouchers
-  </button>
-</Link>
+  {/* Right Side Image with Animation */}
+  <div className="flex justify-center mt-10 md:mt-0 w-full md:w-1/2">
+    <motion.div
+      className="w-full max-w-[400px] sm:max-w-[600px] flex justify-center"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: [0, -20, 0] }}
+      transition={{ 
+        duration: 3,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "mirror"
+      }}
+    >
+      <Image 
+        src={hero} 
+        alt="Our Work"
+        width={620}
+        height={550}
+        className="w-full h-auto object-contain"
+      />
+    </motion.div>
+  </div>
+</div>
 
-  </li>
-  <li>
-  <Link href="">
-  <button 
-    className="bg-[#47b2e4] text-white px-6 py-3 rounded-full 
-      hover:bg-[#369acb] transition-all duration-300"
-  >
-    Plagiarism Checking
-  </button>
-</Link>
-  </li>
-</ul>
-          </div>
-
-          <div className="flex justify-center">
-      {/* Right Side Image with Animation */}
-      <motion.div
-        className="w-[800px] h-[400px] flex justify-center"
-        initial={{ opacity: 0, y: 50 }} // Start invisible & move up
-        animate={{ opacity: 1, y: [0, -20, 0] }} // Moves up & down
-        transition={{ 
-          duration: 3, // Time for one full up-down cycle
-          ease: "easeInOut", // Smooth movement
-          repeat: Infinity, // Loop forever
-          repeatType: "mirror" // Moves back and forth smoothly
-        }}
-      >
-        <Image 
-          src={hero} 
-          alt="Our Work"
-          width={620} // Fixed width
-          height={550} // Fixed height
-          className=""
-        />
-      </motion.div>
-    </div>
-        </div>
         <section id="about" className="py-16 px-6 bg-white text-gray-800">
   <div className="max-w-5xl mx-auto text-center">
     
     {/* Section Title */}
-    <h2 className="text-4xl font-extrabold text-gray-900">ABOUT S3 Research & Support</h2>
+    <h2 className="text-4xl font-bold text-gray-900 md:font-medium">ABOUT S3 Research & Support</h2>
     <div className="w-full border-b-4 border-blue-400 mx-auto mt-2"></div>
 
     {/* Description */}
@@ -204,7 +212,7 @@ export default function Navbar() {
   <div className="max-w-5xl mx-auto text-center">
     
     {/* Section Title */}
-    <h2 className="text-4xl font-extrabold text-gray-900">PUBLICATIONS</h2>
+    <h2 className="text-4xl font-bold text-gray-900 md:text-xl">PUBLICATIONS</h2>
     <div className="w-16 border-b-4 border-blue-400 mx-auto mt-2"></div>
 
     {/* Description */}
@@ -280,7 +288,7 @@ export default function Navbar() {
   <div className="max-w-5xl mx-auto text-center">
     
     {/* Section Title */}
-    <h2 className="text-4xl font-extrabold text-gray-900">Workshops & Events</h2>
+    <h2 className="text-4xl font-bold text-gray-900">Workshops & Events</h2>
     <div className="w-16 border-b-4 border-blue-400 mx-auto mt-2"></div>
 
     {/* Description */}
@@ -389,7 +397,7 @@ export default function Navbar() {
 
 <section id="technologies" className="py-20 px-8 bg-gray-50 text-gray-800">
   <div className="max-w-7xl mx-auto text-center">
-    <h2 className="text-4xl font-extrabold leading-tight mb-12">Our Expertise in Software, Web, and Mobile Development</h2>
+    <h2 className="text-4xl font-bold leading-tight mb-12">Our Expertise in Software, Web, and Mobile Development</h2>
 
     {/* Java */}
     <div className="bg-white p-8 rounded-xl shadow-xl mb-12">
@@ -515,7 +523,7 @@ export default function Navbar() {
 
 {/* Journals Section */}
 {/* <section id="journals" className="py-16 px-8 bg-gray-100">
-  <h2 className="text-3xl font-extrabold text-center mb-12">Peer-Reviewed Journals</h2>
+  <h2 className="text-3xl font-bold text-center mb-12">Peer-Reviewed Journals</h2>
   <ul className="list-none space-y-6 text-center">
     <li>
       <a href="https://www.ijdiic.org" target="_blank" className="text-blue-600 text-xl">International Journal of Data Informatics and Intelligent Computing (IJDIIC)</a>
@@ -539,7 +547,7 @@ export default function Navbar() {
     
     {/* Left Side: Contact Information */}
     <div className="space-y-6">
-      <h2 className="text-4xl font-extrabold leading-tight text-center mb-6">Contact Us</h2>
+      <h2 className="text-4xl font-bold leading-tight text-center mb-6">Contact Us</h2>
       <p className="text-lg text-center mb-6">Have questions? Get in touch with us.</p>
 
       {/* Office Address */}
@@ -585,7 +593,7 @@ export default function Navbar() {
 </section>
 <section id="apply" className="py-16 px-8 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
   <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl font-extrabold text-center mb-6">Apply Now</h2>
+    <h2 className="text-4xl font-bold text-center mb-6">Apply Now</h2>
     <p className="text-lg text-center mb-12">Fill out the form below to apply for our services.</p>
 
     <div className="bg-white p-8 rounded-xl shadow-xl">
@@ -718,11 +726,9 @@ export default function Navbar() {
     </div>
   </div>
 </section>
-
-
-
-
       </main>   
     </div>
   );
 }
+
+
