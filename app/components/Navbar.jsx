@@ -363,7 +363,7 @@ export default function Navbar() {
   </div>
 </section>
 
-<section id="collaborations" className="py-16 px-10 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
+<section id="collaborations" className="py-5 px-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
   <div className="max-w-7xl mx-auto text-center">
     <h2 className="text-3xl font-bold mb-6">Our Collaborations</h2>
     <p className="text-lg mb-12">
@@ -400,7 +400,7 @@ export default function Navbar() {
     <h2 className="text-4xl font-bold leading-tight mb-12">Our Expertise in Software, Web, and Mobile Development</h2>
 
     {/* Java */}
-    <div className="bg-white p-8 rounded-xl shadow-xl mb-12">
+    <div className="bg-white p-5 rounded-3xl shadow-xl mb-12">
       <h3 className="text-3xl font-semibold text-indigo-600 mb-4">Java Development</h3>
       <p className="text-lg text-gray-700 mb-4">
         Java is a robust, object-oriented programming language known for its scalability, portability, and security.
@@ -574,18 +574,21 @@ export default function Navbar() {
 
     {/* Right Side: Google Map */}
     <div>
-      <h3 className="text-xl font-semibold text-white text-center mb-6">Our Office on Map</h3>
-      <div className="h-64">
-      <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1167880296052!2d78.1211658!3d9.9242306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c58ff69d8c77%3A0xd02a932c77e712e6!2s109%2C%20Vakkil%20New%20St%2C%20Simmakkal%2C%20Madurai%20Main%2C%20Madurai%2C%20Tamil%20Nadu%20625001!5e0!3m2!1sen!2sin!4v1742146531264!5m2!1sen!2sin"
-  width="600"
-  height="450"
-  style={{ border: 0 }}
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-/>
-
+      <h3 className="text-xl font-semibold text-white text-center mb-10 mr-5 md:w-auto w-full">Our Office on Map</h3>
+      <div className="h-64 px-5">
+      <div className="w-full h-[450px]">
+      <div className="w-full h-[450px]">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1167880296052!2d78.1211658!3d9.9242306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c58ff69d8c77%3A0xd02a932c77e712e6!2s109%2C%20Vakkil%20New%20St%2C%20Simmakkal%2C%20Madurai%20Main%2C%20Madurai%2C%20Tamil%20Nadu%20625001!5e0!3m2!1sen!2sin!4v1744672357723!5m2!1sen!2sin"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    allowFullScreen
+  />
+</div>
+</div>
       </div>
     </div>
 
@@ -593,7 +596,7 @@ export default function Navbar() {
 </section>
 <section id="apply" className="py-16 px-8 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
   <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl font-bold text-center mb-6">Apply Now</h2>
+    <h2 className="text-4xl font-bold text-center mt-28">Apply Now</h2>
     <p className="text-lg text-center mb-12">Fill out the form below to apply for our services.</p>
 
     <div className="bg-white p-8 rounded-xl shadow-xl">
@@ -668,7 +671,7 @@ export default function Navbar() {
 </section>
 <section id="footer" className="bg-[#2B4B77] text-white py-16">
   <div className="max-w-7xl mx-auto px-8">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div className="grid grid-cols-1  sm:grid-cols-3 lg:grid-cols-4 gap-12">
 
       {/* Logo Section */}
       <div className="flex items-center">
