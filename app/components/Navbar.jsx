@@ -8,7 +8,7 @@ import hero from "../../public/hero-img.png";
 import { motion } from "framer-motion"; // Import Framer Motion
 import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faLocationDot, faPhone, faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { X } from 'lucide-react';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
 export default function Navbar() {
@@ -40,18 +40,18 @@ export default function Navbar() {
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-6 text-lg">
           <li>
-            <Link href="/" className="text-blue-400 hover:text-[#f36f12]">
+            <Link href="/" className="text-[#f36f12] hover:text-[#e55d00]">
               Home
             </Link>
           </li>
-          <li><a href="#about" className="text-blue-500 hover:text-[#f36f12]" >About</a></li>
-          <li><a href="#publications" className="text-blue-500 hover:text-[#f36f12]">Publications</a></li>
-          <li><Link href="#connect" className=" text-blue-500 hover:text-[#f36f12]">Connect Us</Link></li>
-          <li><Link href="#workshops" className="text-blue-500 hover:text-[#f36f12]">Workshop & Events</Link></li>
-          <li><Link href="#collaborations" className="text-blue-500 hover:text-[#f36f12]">Collaborations</Link></li>
-          <li><Link href="#technologies" className="text-blue-500 hover:text-[#f36f12]">Research & Development</Link></li>
-          <li><Link href="#contact" className=" text-blue-500 hover:text-[#f36f12]">Contact</Link></li>
-          <li><Link href="#payments" className="text-blue-500 hover:text-[#f36f12]">Payments</Link></li>
+          <li><a href="#about" className="text-[#f36f12] hover:text-[#e55d00]" >About</a></li>
+          <li><a href="#publications" className="text-[#f36f12] hover:text-[#e55d00]">Publications</a></li>
+          <li><Link href="#connect" className=" text-[#f36f12] hover:text-[#e55d00]">Connect Us</Link></li>
+          <li><Link href="#workshops" className="text-[#f36f12] hover:text-[#e55d00]">Workshop & Events</Link></li>
+          <li><Link href="#collaborations" className="text-[#f36f12] hover:text-[#e55d00]">Collaborations</Link></li>
+          <li><Link href="#technologies" className="text-[#f36f12] hover:text-[#e55d00]">Research & Development</Link></li>
+          <li><Link href="#contact" className=" text-[#f36f12] hover:text-[#e55d00]">Contact</Link></li>
+          <li><Link href="#payments" className="text-[#f36f12] hover:text-[#e55d00]">Payments</Link></li>
         </ul>
       </div>
 
@@ -530,36 +530,144 @@ export default function Navbar() {
   </div>
 </section>
 
-{/* Journals Section */}
-{/* <section id="journals" className="py-16 px-8 bg-gray-100">
-  <h2 className="text-3xl font-bold text-center mb-12">Peer-Reviewed Journals</h2>
-  <ul className="list-none space-y-6 text-center">
-    <li>
-      <a href="https://www.ijdiic.org" target="_blank" className="text-blue-600 text-xl">International Journal of Data Informatics and Intelligent Computing (IJDIIC)</a>
-    </li>
-    <li>
-      <a href="https://www.ijetcc.org" target="_blank" className="text-blue-600 text-xl">International Journal of Emerging Technologies in Computer and Communication (IJETCC)</a>
-    </li>
-    <li>
-      <a href="https://www.jieee.org" target="_blank" className="text-blue-600 text-xl">Journal of Informatics Electrical and Electronics Engineering (JIEEE)</a>
-    </li>
-    <li>
-      <a href="https://www.jase.org" target="_blank" className="text-blue-600 text-xl">Journal of Applied Science and Education (JASE)</a>
-    </li>
-    <li>
-      <a href="https://www.jmss.org" target="_blank" className="text-blue-600 text-xl">Journal of Management and Service Science (JMSS)</a>
-    </li>
-  </ul>
-</section> */}
-<section id="contact" className="py-16 px-8  text-black">
+
+
+<section className="max-w-6xl mx-auto p-4 sm:p-6 md:p-10" id="contact">
+  <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
+    CONTACT
+  </h2>
+  <div className="border-b-2 border-blue-400 w-24 mx-auto mb-10" />
+
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    {/* Left: Info & Map */}
+    <div className="bg-white shadow-md p-6 sm:p-8 md:p-10 rounded">
+      {/* Location */}
+      <div className="flex items-start mb-6">
+        <FontAwesomeIcon icon={faLocationDot} className="mt-1 text-black w-5 h-5 mr-3" />
+        <div>
+        <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='text-black'>Location:</strong> 
+          <p className="text-black mt-1" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+            109, Vakkil New Street, Opposite of Bus stop, Simmakkal, Madurai-625002
+          </p>
+        </div>
+      </div>
+
+      {/* Email */}
+      <div className="flex items-start mb-6">
+        <FontAwesomeIcon icon={faSquareEnvelope} className="text-black mt-1 w-5 h-5 mr-3" />
+        <div>
+        <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='text-black'>Email:</strong> 
+        <a href="mailto:mohankumar@s3techindia.com" className="text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}> mohankumar@s3techindia.com</a>
+        </div>
+      </div>
+
+      {/* Call */}
+      <div className="flex items-start mb-6">
+        <FontAwesomeIcon icon={faPhone} className="text-black mt-1 w-5 h-5 mr-3" />
+        <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='mr-2 text-black'>Call:</strong> 
+        <p className="text-black ">+91 8299178291</p>
+        <div>
+       
+        </div>
+      </div>
+
+      {/* Google Map */}
+      <div className="mt-6 border-t pt-4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1167880296052!2d78.1211658!3d9.9242306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c58ff69d8c77%3A0xd02a932c77e712e6!2s109%2C%20Vakkil%20New%20St%2C%20Simmakkal%2C%20Madurai%20Main%2C%20Madurai%2C%20Tamil%20Nadu%20625001!5e0!3m2!1sen!2sin!4v1744672357723!5m2!1sen!2sin"
+          width="100%"
+          height="200"
+          loading="lazy"
+          allowFullScreen=""
+          className="rounded w-full"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+    </div>
+
+    {/* Right: Form */}
+    <form className="bg-white shadow-md p-6 sm:p-8 md:p-10 rounded space-y-6 text-black max-w-5xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+       
+
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+          <input
+            type="text"
+            id="mobile"
+            name="mobile"
+            placeholder="Enter your mobile number"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Enter your message"
+          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        ></textarea>
+      </div>
+
+      <div className="text-center">
+        <button
+          type="submit"
+          className="bg-[#36b3ec] text-white px-6 py-2 rounded-md hover:bg-[#f36f12] transition-colors"
+        >
+          Apply Now
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+
+
+{/* <section id="contact" className="py-16 px-8  text-black">
   <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
     
-    {/* Left Side: Contact Information */}
     <div className="space-y-6">
       <h2 className="text-4xl font-bold leading-tight text-center mb-6"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Us</h2>
       <p className="text-lg text-center mb-6">Have questions? Get in touch with us.</p>
 
-      {/* Office Address */}
       <div>
         <h3 className="text-xl font-semibold text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Office Location</h3>
         <p className="text-lg  mb-4 text-black">
@@ -567,7 +675,6 @@ export default function Navbar() {
         </p>
       </div>
 
-      {/* Contact Information */}
       <div>
         <h3 className="text-xl font-semibold text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Details</h3>
         <p className="text-lg text-black mb-4">
@@ -581,7 +688,6 @@ export default function Navbar() {
       </div>
     </div>
 
-    {/* Right Side: Google Map */}
     <div>
       <h3 className="text-2xl font-semibold text-black text-center mb-10 mr-5 md:w-auto w-full"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Office on Map</h3>
       <div className="h-64 px-5">
@@ -602,8 +708,10 @@ export default function Navbar() {
     </div>
 
   </div>
-</section>
-<section id="apply" className="py-14 md:px-4 px-0  text-black">
+</section> */}
+
+
+{/* <section id="apply" className="py-14 md:px-4 px-0  text-black">
   <div className="max-w-7xl mx-auto">
     <h2 className="text-4xl font-bold text-center mt-30"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Apply Now</h2>
     <p className="text-lg text-center mb-10 mt-8"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Fill out the form below to apply for our services.</p>
@@ -677,7 +785,7 @@ export default function Navbar() {
       </form>
     </div>
   </div>
-</section>
+</section> */}
 <section id="footer" className="bg-[#2B4B77] text-white py-16">
   <div className="max-w-7xl mx-auto px-8">
     <div className="grid grid-cols-1  sm:grid-cols-3 lg:grid-cols-4 gap-12">
