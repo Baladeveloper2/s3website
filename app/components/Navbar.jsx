@@ -10,6 +10,23 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faLocationDot, faPhone, faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { X } from 'lucide-react';
+import client1 from "../../public/client-1.png"
+import client2 from "../../public/client-2.png"
+
+import client3 from "../../public/client-3.png"
+
+import client4 from "../../public/client-4.png"
+
+import client5 from "../../public/client-5.png"
+
+import client6 from "../../public/client-6.png"
+
+import client7 from "../../public/client-7.png"
+
+import client8 from "../../public/client-8.png"
+import cta from "../../public/cta-bg.jpg"
+
+
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -138,7 +155,22 @@ export default function Navbar() {
   </div>
 </div>
 
-        <section id="about" className="py-16 px-6 bg-white text-gray-800">
+<section id="brandlogos" className="bg-gray-100 py-10">
+  <div className="max-w-6xl mx-auto px-4">
+  
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 place-items-center">
+      {[client1, client2, client3, client4, client5, client6, client7, client8].map((logo, index) => (
+        <div key={index} className="bg-white p-4 rounded shadow transform transition-transform duration-300 hover:scale-130">
+          <Image src={logo} alt={`Client ${index + 1}`} width={80} height={50} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+  <section id="about" className="py-16 px-6 bg-white text-gray-800">
   <div className="max-w-5xl mx-auto text-center">
     
 <h2
@@ -287,9 +319,34 @@ export default function Navbar() {
        throughout the world in the fields of CSE, IT, ECE, and management.
       </p>
     </div>
-
   </div>
 </section>
+
+<section
+  style={{
+    backgroundImage: `linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)), url(${cta.src})`,
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }}
+  className="text-white"
+>
+  <div className="p-10">
+    <h1 className='text-4xl font-extrabold flex items-center justify-center mt-5 mb-8' style={{ fontFamily: '"Times New Roman", Times, serif' }}>Connect us on WhatsApp group</h1>
+    <p className='text-center text-2xl mb-18'style={{ fontFamily: '"Times New Roman", Times, serif' }} >
+      On WhatsApp group you will find all updates related to Research, Publication, International and National Conferences, Workshop, Seminars, Webinars, Trainings and Research Guidance
+    </p>
+<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-10'>
+<button className="px-15 py-2 border hover:bg-[#f36f12] border-white rounded-full  transition">WhatsApp Group-1 Full</button>
+<button className='px-15 py-2 border hover:bg-[#f36f12] border-white rounded-full transition'>WhatsApp group-2</button>
+<button className='px-15 py-2 border border-white rounded-full hover:bg-[#f36f12] transition'>WhatsApp group-3</button>
+<button className='px-15 py-2 border border-white rounded-full hover:bg-[#f36f12] transition'>WhatsApp group-4</button>
+<button className='px-15 py-2 border border-white rounded-full hover:bg-[#f36f12] transition'>WhatsApp group-5</button>
+</div>
+  </div>
+</section>
+
 
 
 
@@ -536,7 +593,7 @@ export default function Navbar() {
   <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
     CONTACT
   </h2>
-  <div className="border-b-2 border-blue-400 w-24 mx-auto mb-10" />
+  <div className="border-b-2 border-blue-400 w-full mx-auto mb-10" />
 
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
     {/* Left: Info & Map */}
