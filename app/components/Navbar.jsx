@@ -57,18 +57,18 @@ export default function Navbar() {
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-6 text-lg">
           <li>
-            <Link href="/" className="text-[#f36f12] hover:text-[#e55d00]">
+            <Link href="/" className="text-black hover:text-[#e55d00]">
               Home
             </Link>
           </li>
-          <li><a href="#about" className="text-[#f36f12] hover:text-[#e55d00]" >About</a></li>
-          <li><a href="#publications" className="text-[#f36f12] hover:text-[#e55d00]">Publications</a></li>
-          <li><Link href="#connect" className=" text-[#f36f12] hover:text-[#e55d00]">Connect Us</Link></li>
-          <li><Link href="#workshops" className="text-[#f36f12] hover:text-[#e55d00]">Workshop & Events</Link></li>
-          <li><Link href="#collaborations" className="text-[#f36f12] hover:text-[#e55d00]">Collaborations</Link></li>
-          <li><Link href="#technologies" className="text-[#f36f12] hover:text-[#e55d00]">Research & Development</Link></li>
-          <li><Link href="#contact" className=" text-[#f36f12] hover:text-[#e55d00]">Contact</Link></li>
-          <li><Link href="#payments" className="text-[#f36f12] hover:text-[#e55d00]">Payments</Link></li>
+          <li><a href="#about" className="text-black hover:text-[#e55d00]" >About</a></li>
+          <li><a href="#publications" className="text-black hover:text-[#e55d00]">Publications</a></li>
+          <li><Link href="#connect" className=" text-black hover:text-[#e55d00]">Connect Us</Link></li>
+          <li><Link href="#workshops" className="text-black hover:text-[#e55d00]">Workshop & Events</Link></li>
+          <li><Link href="#collaborations" className="text-black hover:text-[#e55d00]">Collaborations</Link></li>
+          <li><Link href="#technologies" className="text-black hover:text-[#e55d00]">Research & Development</Link></li>
+          <li><Link href="#contact" className=" text-black hover:text-[#e55d00]">Contact</Link></li>
+          <li><Link href="#payments" className="text-black hover:text-[#e55d00]">Payments</Link></li>
         </ul>
       </div>
 
@@ -161,7 +161,7 @@ export default function Navbar() {
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 place-items-center">
       {[client1, client2, client3, client4, client5, client6, client7, client8].map((logo, index) => (
         <div key={index} className="bg-white p-4 rounded shadow transform transition-transform duration-300 hover:scale-130">
-          <Image src={logo} alt={`Client ${index + 1}`} width={80} height={50} />
+          <Image src={logo} alt={`Client ${index + 1}`} width={190} height={160} />
         </div>
       ))}
     </div>
