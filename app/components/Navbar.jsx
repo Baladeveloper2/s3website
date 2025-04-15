@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <div>
       {/* Navbar */}
-      <nav className="bg-white text-white px-6 py-4 md:w-auto">
+      <nav className="bg-white text-white px-6 py-4 md:w-auto" id="home">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
@@ -40,18 +40,18 @@ export default function Navbar() {
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-6 text-lg">
           <li>
-            <Link href="/" className="text-blue-400 hover:text-white">
+            <Link href="/" className="text-blue-400 hover:text-[#f36f12]">
               Home
             </Link>
           </li>
-          <li><a href="#about" className="text-blue-500 hover:text-blue-300" >About</a></li>
-          <li><a href="#publications" className="text-blue-500 hover:text-blue-300">Publications</a></li>
-          <li><Link href="#connect" className=" text-blue-500 hover:text-blue-300">Connect Us</Link></li>
-          <li><Link href="#workshops" className="text-blue-500 hover:text-blue-300">Workshop & Events</Link></li>
-          <li><Link href="#collaborations" className="text-blue-500 hover:text-blue-300">Collaborations</Link></li>
-          <li><Link href="#technologies" className="text-blue-500 hover:text-blue-300">Research & Development</Link></li>
-          <li><Link href="#contact" className=" text-blue-500 hover:text-blue-300">Contact</Link></li>
-          <li><Link href="#payments" className="text-blue-500 hover:text-blue-300">Payments</Link></li>
+          <li><a href="#about" className="text-blue-500 hover:text-[#f36f12]" >About</a></li>
+          <li><a href="#publications" className="text-blue-500 hover:text-[#f36f12]">Publications</a></li>
+          <li><Link href="#connect" className=" text-blue-500 hover:text-[#f36f12]">Connect Us</Link></li>
+          <li><Link href="#workshops" className="text-blue-500 hover:text-[#f36f12]">Workshop & Events</Link></li>
+          <li><Link href="#collaborations" className="text-blue-500 hover:text-[#f36f12]">Collaborations</Link></li>
+          <li><Link href="#technologies" className="text-blue-500 hover:text-[#f36f12]">Research & Development</Link></li>
+          <li><Link href="#contact" className=" text-blue-500 hover:text-[#f36f12]">Contact</Link></li>
+          <li><Link href="#payments" className="text-blue-500 hover:text-[#f36f12]">Payments</Link></li>
         </ul>
       </div>
 
@@ -92,21 +92,21 @@ export default function Navbar() {
     <ul className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 text-base md:text-lg mt-8">
       <li>
         <Link href="">
-          <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#369acb] transition-all duration-300 w-full sm:w-auto">
+          <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#f36f12] transition-all duration-300 w-full sm:w-auto">
             Call for Chapters
           </button>
         </Link>
       </li>
       <li>
         <Link href="">
-          <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#369acb] transition-all duration-300 w-full sm:w-auto">
+          <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full h hover:bg-[#f36f12]  transition-all duration-300 w-full sm:w-auto">
             Download Brochures
           </button>
         </Link>
       </li>
       <li>
         <Link href="">
-          <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#369acb] transition-all duration-300 w-full sm:w-auto">
+          <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#f36f12] transition-all duration-300 w-full sm:w-auto">
             Plagiarism Checking
           </button>
         </Link>
@@ -221,8 +221,8 @@ export default function Navbar() {
   <div className="max-w-5xl mx-auto text-center">
     
     {/* Section Title */}
-    <h2 className="text-4xl font-bold text-gray-900 md:text-xl">PUBLICATIONS</h2>
-    <div className="w-16 border-b-4 border-blue-400 mx-auto mt-2"></div>
+    <h2 className="text-4xl font-bold text-gray-900 md:text-4xl">Publications</h2>
+    <div className="w-full border-b-4 border-blue-400 mx-auto mt-2"></div>
 
     {/* Description */}
     <p className="text-lg leading-relaxed text-gray-700 mt-6">
@@ -298,7 +298,7 @@ export default function Navbar() {
     
     {/* Section Title */}
     <h2 className="text-4xl font-bold text-gray-900"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Workshops & Events</h2>
-    <div className="w-16 border-b-4 border-blue-400 mx-auto mt-2"></div>
+    <div className="w-full border-b-4 border-blue-400 mx-auto mt-2"></div>
 
     {/* Description */}
     <p className="text-lg leading-relaxed text-gray-700 mt-6" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
@@ -669,7 +669,7 @@ export default function Navbar() {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-indigo-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300"
+            className="bg-indigo-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-[#f36f12] transition duration-300"
           >
             Apply Now
           </button>
@@ -683,20 +683,24 @@ export default function Navbar() {
     <div className="grid grid-cols-1  sm:grid-cols-3 lg:grid-cols-4 gap-12">
 
       {/* Logo Section */}
-      <div className="flex items-center">
-        <Image src={logo} width={80} height={50} alt="Company Logo" className="h-12 w-auto" />
-        <span className="text-xl font-bold ml-4"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>S3-PRZ RESEARCH & PUBLICATION</span>
+      <div className="flex items-center flex-col">
+        <Image src={logo}  width={80} height={50} alt="Company Logo" className="h-12 w-auto" />
+        <p className="text-xl  font-bold ml-12 mt-3"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>S3-PRZ RESEARCH & PUBLICATION</p>
       </div>
 
       {/* Quick Links */}
       <div>
         <h4 className="text-xl font-semibold mb-4"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>
-        Useful Links</h4>
+        Quick Links</h4>
         <ul className="space-y-2">
-          <li><a href="#home" className="hover:text-indigo-400">Home</a></li>
-          <li><a href="#services" className="hover:text-indigo-400">Services</a></li>
-          <li><a href="#about" className="hover:text-indigo-400">About Us</a></li>
-          <li><a href="#contact" className="hover:text-indigo-400">Contact</a></li>
+    <li><a href="#home" className="hover:text-[#f36f12]">Home</a></li>
+    <li><a href="#about" className="hover:text-[#f36f12]">About</a></li>
+    <li><a href="#publications" className="hover:text-[#f36f12]">Publications</a></li>
+    {/* <li><a href="#connect" className="hover:underline">Connect Us</a></li> */}
+    {/* <li><a href="#workshops" className="hover:underline">Workshop & Events</a></li> */}
+    {/* <li><a href="#collaborations" className="hover:underline">Collaborations</a></li> */}
+    {/* <li><a href="#technologies" className="hover:underline">Research & Development</a></li> */}
+    <li><a href="#contact" className="hover:text-[#f36f12]">Contact</a></li>
         </ul>
       </div>
 
@@ -705,10 +709,10 @@ export default function Navbar() {
         <h4 className="text-xl font-semibold mb-4"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Information</h4>
         <p className="mb-2"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>109, Vakkil New Street, Opposite of Bus stop, Simmakkal, Madurai</p>
         <p className="mb-2"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>
-          <a href="mailto:care@creppvtltd.com" className="hover:text-indigo-400">mohankumar@s3techindia.com</a>
+          <a href="mailto:mohankumar@s3techindia.com" className="hover:text-[#f36f12]">mohankumar@s3techindia.com</a>
         </p>
         <p className="mb-2" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
-          <a href="tel:+918299178291" className="hover:text-indigo-400">+919789339435</a>
+          <a href="tel:+919789339435" className="hover:text-[#f36f12]">+919789339435</a>
         </p>
       </div>
 
@@ -716,16 +720,16 @@ export default function Navbar() {
       <div>
       <h4 className="text-xl font-semibold mb-4" style={{ fontFamily: '"Times New Roman", Times, serif' }}>Follow Us</h4>
       <div className="flex space-x-4">
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
           <FontAwesomeIcon icon={faFacebookF} className="text-xl" />
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
           <FontAwesomeIcon icon={faTwitter} className="text-xl" />
         </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
           <FontAwesomeIcon icon={faLinkedinIn} className="text-xl" />
         </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
           <FontAwesomeIcon icon={faInstagram} className="text-xl" />
         </a>
       </div>
