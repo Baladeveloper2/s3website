@@ -372,7 +372,7 @@ export default function Navbar() {
   </div>
 </section>
 
-<section id="collaborations" className="py-5 px-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
+<section id="collaborations" className="py-5 px-3  text-black">
   <div className="max-w-7xl mx-auto text-center">
     <h2 className="text-3xl font-bold mb-6"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Collaborations</h2>
     <p className="text-lg mb-12"style={{ fontFamily: '"Times New Roman", Times, serif' }}>

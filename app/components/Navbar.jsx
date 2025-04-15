@@ -34,7 +34,7 @@ export default function Navbar() {
           className="md:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={28} /> : <FontAwesomeIcon icon={faBars} />}
+          {menuOpen ? <X size={28} className='text-black' /> : <FontAwesomeIcon icon={faBars} className='text-black' />}
         </button>
 
         {/* Desktop Nav Links */}
@@ -57,16 +57,16 @@ export default function Navbar() {
 
       {/* Mobile Nav Links */}
       {menuOpen && (
-        <ul className="md:hidden mt-4 space-y-4 text-lg">
-          <li><Link href="/" className="text-blue-300 font-semibold hover:text-white">Home</Link></li>
-          <li><a href="#about" className="hover:text-blue-300">About</a></li>
-          <li><a href="#publications" className="hover:text-blue-300">Publications</a></li>
-          <li><Link href="#connect" className="hover:text-blue-300">Connect Us</Link></li>
-          <li><Link href="#workshops" className="hover:text-blue-300">Workshop & Events</Link></li>
-          <li><Link href="#collaborations" className="hover:text-blue-300">Collaborations</Link></li>
-          <li><Link href="#technologies" className="hover:text-blue-300">Research & Development</Link></li>
-          <li><Link href="#contact" className="hover:text-blue-300">Contact</Link></li>
-          <li><Link href="#payments" className="hover:text-blue-300">Payments</Link></li>
+        <ul className="md:hidden mt-4 space-y-4 text-lg text-black">
+          <li><Link href="/" className="text-black font-semibold hover:text-white">Home</Link></li>
+          <li><a href="#about" className=" text-black hover:text-blue-300">About</a></li>
+          <li><a href="#publications" className=" text-black hover:text-blue-300">Publications</a></li>
+          <li><Link href="#connect" className="text-black hover:text-blue-300">Connect Us</Link></li>
+          <li><Link href="#workshops" className="text-black hover:text-blue-300">Workshop & Events</Link></li>
+          <li><Link href="#collaborations" className=" text-black hover:text-blue-300">Collaborations</Link></li>
+          <li><Link href="#technologies" className="text-black hover:text-blue-300">Research & Development</Link></li>
+          <li><Link href="#contact" className=" text-black hover:text-blue-300">Contact</Link></li>
+          <li><Link href="#payments" className=" text-black hover:text-blue-300">Payments</Link></li>
         </ul>
       )}
     </nav>
@@ -372,7 +372,7 @@ export default function Navbar() {
   </div>
 </section>
 
-<section id="collaborations" className="py-5 px-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
+<section id="collaborations" className="py-5 px-3  text-black">
   <div className="max-w-7xl mx-auto text-center">
     <h2 className="text-3xl font-bold mb-6"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Collaborations</h2>
     <p className="text-lg mb-12"style={{ fontFamily: '"Times New Roman", Times, serif' }}>
@@ -551,7 +551,7 @@ export default function Navbar() {
     </li>
   </ul>
 </section> */}
-<section id="contact" className="py-16 px-8 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
+<section id="contact" className="py-16 px-8  text-black">
   <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
     
     {/* Left Side: Contact Information */}
@@ -561,29 +561,29 @@ export default function Navbar() {
 
       {/* Office Address */}
       <div>
-        <h3 className="text-xl font-semibold text-white"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Office Location</h3>
-        <p className="text-lg text-gray-200 mb-4">
+        <h3 className="text-xl font-semibold text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Office Location</h3>
+        <p className="text-lg  mb-4 text-black">
         109, Vakkil New Street, Opposite of Bus stop, Simmakkal, Madurai
         </p>
       </div>
 
       {/* Contact Information */}
       <div>
-        <h3 className="text-xl font-semibold text-white"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Details</h3>
-        <p className="text-lg text-gray-200 mb-4">
+        <h3 className="text-xl font-semibold text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Details</h3>
+        <p className="text-lg text-black mb-4">
           <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Email:</strong> 
-          <a href="mailto:mohankumar@s3techindia.com" className="text-white"  style={{ fontFamily: '"Times New Roman", Times, serif' }}> mohankumar@s3techindia.com</a>
+          <a href="mailto:mohankumar@s3techindia.com" className="text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}> mohankumar@s3techindia.com</a>
         </p>
         <p className="text-lg text-gray-200 mb-4">
-          <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Call:</strong> 
-          <a href="tel:+919789339435" className="text-white"  style={{ fontFamily: '"Times New Roman", Times, serif' }}> +91 9789339435</a>
+          <strong className='text-black' style={{ fontFamily: '"Times New Roman", Times, serif' }}>Call:</strong> 
+          <a href="tel:+919789339435" className="text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}> +91 9789339435</a>
         </p>
       </div>
     </div>
 
     {/* Right Side: Google Map */}
     <div>
-      <h3 className="text-2xl font-semibold text-white text-center mb-10 mr-5 md:w-auto w-full"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Office on Map</h3>
+      <h3 className="text-2xl font-semibold text-black text-center mb-10 mr-5 md:w-auto w-full"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Office on Map</h3>
       <div className="h-64 px-5">
       <div className="w-full h-[450px]">
       <div className="w-full h-[450px]">
@@ -603,10 +603,10 @@ export default function Navbar() {
 
   </div>
 </section>
-<section id="apply" className="py-14 md:px-4 px-0 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
+<section id="apply" className="py-14 md:px-4 px-0  text-black">
   <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl font-bold text-center mt-28"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Apply Now</h2>
-    <p className="text-lg text-center mb-12"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Fill out the form below to apply for our services.</p>
+    <h2 className="text-4xl font-bold text-center mt-30"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Apply Now</h2>
+    <p className="text-lg text-center mb-10 mt-8"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Fill out the form below to apply for our services.</p>
 
     <div className="bg-white p-6 rounded-xl shadow-xl">
       <form className="space-y-8">
@@ -733,7 +733,7 @@ export default function Navbar() {
     </div>
 
     {/* Copyright Section */}
-    <div className="text-center text-sm mt-8" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+    <div className="text-center text-sm mt-20" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       <p>&copy; {new Date().getFullYear()} S3-PRZ RESEARCH & PUBLICATION. All Rights Reserved.</p>
     </div>
   </div>
