@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/S3-logo.jpeg";
 import hero from "../../public/hero-img.png";
+import banner from "../../public/banner.png"
 import { motion } from "framer-motion"; // Import Framer Motion
 import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -93,20 +94,20 @@ export default function Navbar() {
       <main className="bg-white text-white py-2 px-2">
 
         {/* Section with Image & Text */}
-        <div className="mb-12 flex flex-col md:flex-row items-center px-4 md:px-10">
+        <div className="mb-0 flex flex-col md:flex-row items-center px-4 md:px-10">
   {/* Left Side Text */}
-  <div className="w-full md:w-1/2 p-4 md:p-5 text-center md:text-left">
-    <h3 className="text-2xl md:text-3xl text-gray-400 font-semibold"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+  <div className="w-full md:w-1/2 p-0 md:p-5 text-center md:text-left">
+    <h3 className="text-2xl md:text-3xl text-gray-400 font-semibold" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       ISO 9001:2015 Certified
     </h3>
-    <h1 className="text-3xl md:text-5xl text-white font-semibold mt-3">
+    <h1 className="text-2xl md:text-5xl text-black font-bold mb-10 mt-5">
       Better Solutions For Your Research
     </h1>
-    <h2 className="text-lg md:text-2xl font-bold text-gray-400 mt-4"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+    <h2 className="text-3xl md:text-2xl font-bold text-gray-400 mb-10" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       We are a team of researchers helping in all directions of research.
     </h2>
     
-    <ul className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 text-base md:text-lg mt-8">
+    <ul className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 text-base md:text-lg mt-0">
       <li>
         <Link href="">
           <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#f36f12] transition-all duration-300 w-full sm:w-auto">
@@ -134,7 +135,7 @@ export default function Navbar() {
   {/* Right Side Image with Animation */}
   <div className="flex justify-center mt-10 md:mt-0 w-full md:w-1/2">
     <motion.div
-      className="w-full max-w-[400px] sm:max-w-[600px] flex justify-center"
+      className="w-full max-w-[700px] sm:max-w-[500px] flex justify-center"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: [0, -20, 0] }}
       transition={{ 
@@ -145,10 +146,10 @@ export default function Navbar() {
       }}
     >
       <Image 
-        src={hero} 
+        src={banner} 
         alt="Our Work"
-        width={620}
-        height={550}
+        width={700}
+        height={500}
         className="w-full h-auto object-contain"
       />
     </motion.div>
