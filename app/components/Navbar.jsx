@@ -7,34 +7,45 @@ import logo from "../../public/S3-logo.jpeg";
 import hero from "../../public/hero-img.png";
 import banner from "../../public/banner.png"
 import { motion } from "framer-motion"; // Import Framer Motion
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faLocationDot, faPhone, faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { X } from 'lucide-react';
 import client1 from "../../public/client-1.png"
-import client2 from "../../public/client-2.png"
-
+import client2 from "../../public/client-2.jpg"
 import client3 from "../../public/client-3.png"
-
 import client4 from "../../public/client-4.png"
-
 import client5 from "../../public/client-5.png"
-
 import client6 from "../../public/client-6.png"
-
 import client7 from "../../public/client-7.png"
-
 import client8 from "../../public/client-8.png"
 import cta from "../../public/cta-bg.jpg"
-
-
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import {FaArrowUp} from "react-icons/fa"
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const[show,setshow] = useState(false);
+
+  useEffect(()=>{
+    const checkScroll =()=>{
+      if(window.scroll > 300) setshow(true);
+      else 
+        setshow(false)
+    }
+
+    window.addEventListener("scroll",checkScroll);
+    return ()=> window.removeEventListener('scroll',checkScroll)
+  })
+const ScrolltoTop = ()=>{
+  window.scrollTo({top:0,behavior: 'smooth'})
+}
+
+
   return (
     <div>
       {/* Navbar */}
-      <nav className="bg-white text-white px-6 py-4 md:w-auto" id="home">
+
+      <nav className="bg-white text-white px-6 space-x-6 space-y-5 py-4 md:w-auto position: sticky top-0 z-50" id="home">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
@@ -135,7 +146,7 @@ export default function Navbar() {
   {/* Right Side Image with Animation */}
   <div className="flex justify-center mt-10 md:mt-0 w-full md:w-1/2">
     <motion.div
-      className="w-full max-w-[700px] sm:max-w-[500px] flex justify-center"
+      className="w-full max-w-[650px] sm:max-w-[350px] flex justify-center"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: [0, -20, 0] }}
       transition={{ 
@@ -148,8 +159,8 @@ export default function Navbar() {
       <Image 
         src={banner} 
         alt="Our Work"
-        width={700}
-        height={500}
+        width={650}
+        height={350}
         className="w-full h-auto object-contain"
       />
     </motion.div>
@@ -161,8 +172,8 @@ export default function Navbar() {
   
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 place-items-center">
       {[client1, client2, client3, client4, client5, client6, client7, client8].map((logo, index) => (
-        <div key={index} className="bg-white p-4 rounded shadow transform transition-transform duration-300 hover:scale-130">
-          <Image src={logo} alt={`Client ${index + 1}`} width={190} height={160} />
+        <div key={index} className="bg-white p-4 rounded shadow transform transition-transform duration-300 hover:scale-120">
+          <Image src={logo} alt={`Client ${index + 1}`} width={180} height={140} />
         </div>
       ))}
     </div>
@@ -623,7 +634,7 @@ export default function Navbar() {
       <div className="flex items-start mb-6">
         <FontAwesomeIcon icon={faPhone} className="text-black mt-1 w-5 h-5 mr-3" />
         <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='mr-2 text-black'>Call:</strong> 
-        <p className="text-black ">+91 8299178291</p>
+        <p className="text-black "><a href="tel:+919789339435"></a>+91 8299178291</p>
         <div>
        
         </div>
@@ -715,135 +726,34 @@ export default function Navbar() {
   </div>
 </section>
 
+<section id="newsletter" className="flex items-center justify-center bg-[#f8f9fc] py-10 px-4">
+  <div className="w-full max-w-xl text-center">
+    <h2 className="text-[#37517e] font-bold text-2xl md:text-3xl mb-2">Join Our Newsletter</h2>
+    <p className="text-gray-600 mb-6 text-sm">For latest information</p>
 
-
-
-
-{/* <section id="contact" className="py-16 px-8  text-black">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-    
-    <div className="space-y-6">
-      <h2 className="text-4xl font-bold leading-tight text-center mb-6"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Us</h2>
-      <p className="text-lg text-center mb-6">Have questions? Get in touch with us.</p>
-
-      <div>
-        <h3 className="text-xl font-semibold text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Office Location</h3>
-        <p className="text-lg  mb-4 text-black">
-        109, Vakkil New Street, Opposite of Bus stop, Simmakkal, Madurai
-        </p>
-      </div>
-
-      <div>
-        <h3 className="text-xl font-semibold text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Details</h3>
-        <p className="text-lg text-black mb-4">
-          <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Email:</strong> 
-          <a href="mailto:mohankumar@s3techindia.com" className="text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}> mohankumar@s3techindia.com</a>
-        </p>
-        <p className="text-lg text-gray-200 mb-4">
-          <strong className='text-black' style={{ fontFamily: '"Times New Roman", Times, serif' }}>Call:</strong> 
-          <a href="tel:+919789339435" className="text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}> +91 9789339435</a>
-        </p>
-      </div>
-    </div>
-
-    <div>
-      <h3 className="text-2xl font-semibold text-black text-center mb-10 mr-5 md:w-auto w-full"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Office on Map</h3>
-      <div className="h-64 px-5">
-      <div className="w-full h-[450px]">
-      <div className="w-full h-[450px]">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1167880296052!2d78.1211658!3d9.9242306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c58ff69d8c77%3A0xd02a932c77e712e6!2s109%2C%20Vakkil%20New%20St%2C%20Simmakkal%2C%20Madurai%20Main%2C%20Madurai%2C%20Tamil%20Nadu%20625001!5e0!3m2!1sen!2sin!4v1744672357723!5m2!1sen!2sin"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    allowFullScreen
-  />
-</div>
-</div>
-      </div>
-    </div>
-
-  </div>
-</section> */}
-
-
-{/* <section id="apply" className="py-14 md:px-4 px-0  text-black">
-  <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl font-bold text-center mt-30"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Apply Now</h2>
-    <p className="text-lg text-center mb-10 mt-8"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Fill out the form below to apply for our services.</p>
-
-    <div className="bg-white p-6 rounded-xl shadow-xl">
-      <form className="space-y-8">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="name" className="text-gray-700 font-semibold">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              className="w-full mt-2 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="text-gray-700 font-semibold">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-              className="w-full mt-2 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="phone" className="text-gray-700 font-semibold">Mobile Number</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Enter your mobile number"
-            className="w-full mt-2 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="subject" className="text-gray-700 font-semibold">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            placeholder="Subject"
-            className="w-full mt-2 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="message" className="text-gray-700 font-semibold">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            placeholder="Enter your message"
-            className="w-full mt-2 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-
-        <div className="text-center">
-          <button
-            type="submit"
-            className="bg-indigo-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-[#f36f12] transition duration-300"
-          >
-            Apply Now
-          </button>
-        </div>
-      </form>
+    <div className="flex items-center bg-white rounded-full shadow-md px-2 py-2">
+      <input
+        type="text"
+        placeholder="Enter your email"
+        className="flex-grow px-4 py-2 rounded-full focus:outline-none text-gray-700"
+      />
+      <button className="bg-gradient-to-r from-[#36d1dc] to-[#5b86e5] text-white px-6 py-2 rounded-full font-medium text-sm hover:opacity-90 transition-all duration-300">
+        Subscribe
+      </button>
     </div>
   </div>
-</section> */}
+</section>
+
+show && (
+  <button
+    onClick={ScrolltoTop}
+    className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-[#36b3e0] hover:bg-[#1a78a5] text-white shadow-lg transition-all duration-300"
+    aria-label="Scroll to top"
+  >
+    <FaArrowUp width={20} height={20}/>
+  </button>
+)
+
 <section id="footer" className="bg-[#2B4B77] text-white py-16">
   <div className="max-w-7xl mx-auto px-8">
     <div className="grid grid-cols-1  sm:grid-cols-3 lg:grid-cols-4 gap-12">
@@ -869,6 +779,7 @@ export default function Navbar() {
     <li><a href="#contact" className="hover:text-[#f36f12]">Contact</a></li>
         </ul>
       </div>
+
 
       {/* Contact Information */}
       <div>
