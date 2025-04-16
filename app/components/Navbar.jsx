@@ -21,7 +21,7 @@ import client7 from "../../public/client-7.png"
 import client8 from "../../public/client-8.png"
 import cta from "../../public/cta-bg.jpg"
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import {FaArrowUp} from "react-icons/fa"
+import {FaArrowUp,FaUsers,FaFileAlt,FaGlobe,FaChalkboardTeacher,FaProjectDiagram,FaSearch} from "react-icons/fa"
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const[show,setshow] = useState(false);
@@ -40,7 +40,14 @@ const ScrolltoTop = ()=>{
   window.scrollTo({top:0,behavior: 'smooth'})
 }
 
-
+const Achievments = [
+{icon: <FaFileAlt/>, value:"2450+",label:"Scopus Publications"},
+{icon: <FaGlobe/>, value:"210+",label:"Web of Science Publications"},
+{icon:<FaChalkboardTeacher/>, value:"20+",label: "Webinars"},
+{icon:<FaUsers/>,value:"2000+",label:"Members"},
+{icon:<FaSearch/>,value:"190+",label:"Research Proposals"},
+{icon:<FaProjectDiagram/>, value:"25+",label:"Projects Implemented"}
+]
   return (
     <div>
       {/* Navbar */}
@@ -128,7 +135,7 @@ const ScrolltoTop = ()=>{
       </li>
       <li>
         <Link href="">
-          <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full h hover:bg-[#f36f12]  transition-all duration-300 w-full sm:w-auto">
+          <button style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full h hover:bg-[#f36f12]  transition-all duration-300 w-full sm:w-auto">
             Download Brochures
           </button>
         </Link>
@@ -623,10 +630,10 @@ const ScrolltoTop = ()=>{
 
       {/* Email */}
       <div className="flex items-start mb-6">
-        <FontAwesomeIcon icon={faSquareEnvelope} className="text-black mt-1 w-5 h-5 mr-3" />
+        <FontAwesomeIcon icon={faSquareEnvelope} className="text-black mt-1 w-5 h-5 mr-3 " />
         <div>
-        <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='text-black'>Email:</strong> 
-        <a href="mailto:mohankumar@s3techindia.com" className="text-black"  style={{ fontFamily: '"Times New Roman", Times, serif' }}> mohankumar@s3techindia.com</a>
+        <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='text-black mr-2'>Email:</strong> 
+        <a href="mailto:s3research4@gmail.com" className="text-black mr-3"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>s3research4@gmail.com</a>
         </div>
       </div>
 
@@ -634,7 +641,7 @@ const ScrolltoTop = ()=>{
       <div className="flex items-start mb-6">
         <FontAwesomeIcon icon={faPhone} className="text-black mt-1 w-5 h-5 mr-3" />
         <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='mr-2 text-black'>Call:</strong> 
-        <p className="text-black "><a href="tel:+919789339435"></a>+91 8299178291</p>
+        <p className="text-black "><a href="tel:+919789339435">+91 9789339435</a></p>
         <div>
        
         </div>
@@ -726,6 +733,23 @@ const ScrolltoTop = ()=>{
   </div>
 </section>
 
+<section className='Achievements bg-white shadow-md px-10 py-6 max-w-8xl mx-auto' id='achievements'>
+<div>
+  <h1 className='font-bold text-3xl text-center text-black mb-10'style={{ fontFamily: '"Times New Roman", Times, serif' }} >Our Achievements</h1>
+<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+{Achievments.map((item,index)=>(
+  <div key={index} className='border-2 border-orange-500 p-6 rounded-md hover:shadow-lg transition duration-300'>
+    <div className='text-orange-600 text-5xl mb-4'>{item.icon}</div>
+    <div className='text-black text-3xl font-bold'>{item.value}</div>
+    <div className='text-sm text-gray-700'>{item.label}</div>
+
+    </div>
+))}
+
+</div>
+</div>
+</section>
+
 <section id="newsletter" className="flex items-center justify-center bg-[#f8f9fc] py-10 px-4">
   <div className="w-full max-w-xl text-center">
     <h2 className="text-[#37517e] font-bold text-2xl md:text-3xl mb-2">Join Our Newsletter</h2>
@@ -743,6 +767,10 @@ const ScrolltoTop = ()=>{
     </div>
   </div>
 </section>
+
+
+
+
 
 show && (
   <button
@@ -786,7 +814,7 @@ show && (
         <h4 className="text-xl font-semibold mb-4"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Information</h4>
         <p className="mb-2"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>109, Vakkil New Street, Opposite of Bus stop, Simmakkal, Madurai</p>
         <p className="mb-2"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>
-          <a href="mailto:mohankumar@s3techindia.com" className="hover:text-[#f36f12]">mohankumar@s3techindia.com</a>
+          <a href="mailto:s3research4@gmail.com" className="hover:text-[#f36f12]">s3research4@gmail.com</a>
         </p>
         <p className="mb-2" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
           <a href="tel:+919789339435" className="hover:text-[#f36f12]">+919789339435</a>
