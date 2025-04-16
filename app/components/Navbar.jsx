@@ -3,7 +3,7 @@ import 'font-awesome/css/font-awesome.min.css';
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../public/S3-logo.jpeg";
+import logo from "../../public/s3-logos.png";
 import hero from "../../public/hero-img.png";
 import banner from "../../public/banner.png"
 import { motion } from "framer-motion"; // Import Framer Motion
@@ -57,10 +57,10 @@ const Achievments = [
         {/* Logo */}
         <div className="flex items-center">
           <Image
-            src={logo} // replace with your logo path
+            src={logo} 
             alt="S3 Logo"
-            width={150}
-            height={100}
+            width={170}
+            height={200}
             className="mr-4"
           />
         </div>
@@ -115,13 +115,13 @@ const Achievments = [
         <div className="mb-0 flex flex-col md:flex-row items-center px-4 md:px-10">
   {/* Left Side Text */}
   <div className="w-full md:w-1/2 p-0 md:p-5 text-center md:text-left">
-    <h3 className="text-2xl md:text-3xl text-gray-400 font-semibold" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+    <h3 className="text-2xl md:text-3xl text-gray-500 font-semibold" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       ISO 9001:2015 Certified
     </h3>
-    <h1 className="text-2xl md:text-5xl text-black font-bold mb-10 mt-5">
+    <h1 className="text-2xl md:text-4xl text-black font-bold mb-10 mt-5">
       Better Solutions For Your Research
     </h1>
-    <h2 className="text-3xl md:text-2xl font-bold text-gray-400 mb-10" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+    <h2 className="text-3xl md:text-2xl font-bold text-gray-600 mb-10" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       We are a team of researchers helping in all directions of research.
     </h2>
     
@@ -642,28 +642,20 @@ const Achievments = [
         <FontAwesomeIcon icon={faPhone} className="text-black mt-1 w-5 h-5 mr-3" />
         <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='mr-2 text-black'>Call:</strong> 
         <p className="text-black "><a href="tel:+919789339435">+91 9789339435</a></p>
-        <div>
-       
-        </div>
       </div>
-
-      {/* Google Map */}
-      <div className="mt-6 border-t pt-4">
-        <iframe
+     
+      <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1167880296052!2d78.1211658!3d9.9242306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c58ff69d8c77%3A0xd02a932c77e712e6!2s109%2C%20Vakkil%20New%20St%2C%20Simmakkal%2C%20Madurai%20Main%2C%20Madurai%2C%20Tamil%20Nadu%20625001!5e0!3m2!1sen!2sin!4v1744672357723!5m2!1sen!2sin"
           width="100%"
-          height="200"
+          height="67%"
           loading="lazy"
-          allowFullScreen=""
-          className="rounded w-full"
-          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen="allow"
         />
-      </div>
     </div>
 
     {/* Right: Form */}
     <form className="bg-white shadow-md p-6 sm:p-8 md:p-10 rounded space-y-6 text-black max-w-5xl">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1  gap-4">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
           <input

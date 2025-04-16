@@ -3,6 +3,7 @@
 body {
   background-color: #2B4B77; /* Matching the blue background */
   color: white;
+  font-family: "Times New Roman", Times, serif;
 }
 html {
   scroll-behavior: smooth;
