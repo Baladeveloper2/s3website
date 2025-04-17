@@ -1,9 +1,10 @@
 "use client";
 import 'font-awesome/css/font-awesome.min.css';
-
+import payment from "../../public/payments1.jpeg"
 import Image from "next/image";
-import Link from "next/link";
-import logo from "../../public/s3-logos.png";
+import Link from "next/link"; // for Next.js routing
+import { Link as ScrollLink } from "react-scroll"; // for smooth scroll
+import logo from "../../public/S3-logo.jpeg";
 import hero from "../../public/hero-img.png";
 import banner from "../../public/banner.png"
 import { motion } from "framer-motion"; // Import Framer Motion
@@ -75,49 +76,81 @@ const Achievments = [
 
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-6 text-lg">
-          <li>
-            <Link href="/" className="text-black hover:text-[#e55d00]">
-              Home
-            </Link>
-          </li>
-          <li><a href="#about" className="text-black hover:text-[#e55d00]" >About</a></li>
-          <li><a href="#publications" className="text-black hover:text-[#e55d00]">Publications</a></li>
-          <li><Link href="#connect" className=" text-black hover:text-[#e55d00]">Connect Us</Link></li>
-          <li><Link href="#workshops" className="text-black hover:text-[#e55d00]">Workshop & Events</Link></li>
-          <li><Link href="#collaborations" className="text-black hover:text-[#e55d00]">Collaborations</Link></li>
-          <li><Link href="#technologies" className="text-black hover:text-[#e55d00]">Research & Development</Link></li>
-          <li><Link href="#contact" className=" text-black hover:text-[#e55d00]">Contact</Link></li>
-          <li><Link href="#payments" className="text-black hover:text-[#e55d00]">Payments</Link></li>
-        </ul>
+  <li>
+    <Link href="/" className="text-black hover:text-[#e55d00]">Home</Link>
+  </li>
+  <li>
+    <ScrollLink to="about" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
+      About Us
+    </ScrollLink>
+  </li>
+  <li>
+    <ScrollLink to="publications" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
+      Services
+    </ScrollLink>
+  </li>
+  <li>
+    <ScrollLink to="connect" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
+      Connect Us
+    </ScrollLink>
+  </li>
+  <li>
+    <ScrollLink to="workshops" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
+      Events & Workshops
+    </ScrollLink>
+  </li>
+  <li>
+    <ScrollLink to="collaborations" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
+      Collaborate With Us
+    </ScrollLink>
+  </li>
+  <li>
+    <ScrollLink to="technologies" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
+      Research & Development
+    </ScrollLink>
+  </li>
+  <li>
+    <ScrollLink to="contact" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
+      Contact Us
+    </ScrollLink>
+  </li>
+  <li>
+    <ScrollLink to="payments" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
+      Payments
+    </ScrollLink>
+  </li>
+</ul>
+
       </div>
 
       {/* Mobile Nav Links */}
       {menuOpen && (
-        <ul className="md:hidden mt-4 space-y-4 text-lg text-black">
-          <li><Link href="/" className="text-black font-semibold hover:text-white">Home</Link></li>
-          <li><a href="#about" className=" text-black hover:text-blue-300">About</a></li>
-          <li><a href="#publications" className=" text-black hover:text-blue-300">Publications</a></li>
-          <li><Link href="#connect" className="text-black hover:text-blue-300">Connect Us</Link></li>
-          <li><Link href="#workshops" className="text-black hover:text-blue-300">Workshop & Events</Link></li>
-          <li><Link href="#collaborations" className=" text-black hover:text-blue-300">Collaborations</Link></li>
-          <li><Link href="#technologies" className="text-black hover:text-blue-300">Research & Development</Link></li>
-          <li><Link href="#contact" className=" text-black hover:text-blue-300">Contact</Link></li>
-          <li><Link href="#payments" className=" text-black hover:text-blue-300">Payments</Link></li>
-        </ul>
-      )}
+  <ul className="md:hidden mt-4 space-y-4 text-lg text-black">
+    <li><Link href="/" className="text-black font-semibold hover:text-white">Home</Link></li>
+    <li><ScrollLink to="about" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">About Us</ScrollLink></li>
+    <li><ScrollLink to="publications" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Services</ScrollLink></li>
+    <li><ScrollLink to="connect" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Connect Us</ScrollLink></li>
+    <li><ScrollLink to="workshops" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Events & Workshops</ScrollLink></li>
+    <li><ScrollLink to="collaborations" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Collaborate With Us</ScrollLink></li>
+    <li><ScrollLink to="technologies" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Research Areas</ScrollLink></li>
+    <li><ScrollLink to="contact" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Contact Us</ScrollLink></li>
+    <li><ScrollLink to="payments" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Payments</ScrollLink></li>
+  </ul>
+)}
+
     </nav>
 
 
       {/* Content Below Navbar - Same BG Color */}
-      <main className="bg-white text-white py-2 px-2">
+      <main className="bg-white text-white py-2 px-0">
 
         {/* Section with Image & Text */}
         <div className="mb-0 flex flex-col md:flex-row items-center px-4 md:px-10">
   {/* Left Side Text */}
   <div className="w-full md:w-1/2 p-0 md:p-5 text-center md:text-left">
-    <h3 className="text-2xl md:text-3xl text-gray-500 font-semibold" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+    {/* <h3 className="text-2xl md:text-3xl text-gray-500 font-semibold" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       ISO 9001:2015 Certified
-    </h3>
+    </h3> */}
     <h1 className="text-2xl md:text-4xl text-black font-bold mb-10 mt-5">
       Better Solutions For Your Research
     </h1>
@@ -126,13 +159,7 @@ const Achievments = [
     </h2>
     
     <ul className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 text-base md:text-lg mt-0">
-      <li>
-        <Link href="">
-          <button  style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full hover:bg-[#f36f12] transition-all duration-300 w-full sm:w-auto">
-            Call for Chapters
-          </button>
-        </Link>
-      </li>
+     
       <li>
         <Link href="">
           <button style={{ fontFamily: '"Times New Roman", Times, serif' }} className="bg-[#47b2e4] text-white px-6 py-3 rounded-full h hover:bg-[#f36f12]  transition-all duration-300 w-full sm:w-auto">
@@ -341,7 +368,7 @@ const Achievments = [
   </div>
 </section>
 
-<section
+<section id='connect'
   style={{
     backgroundImage: `linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)), url(${cta.src})`,
     backgroundAttachment: 'fixed',
@@ -351,6 +378,7 @@ const Achievments = [
   }}
   className="text-white"
 >
+
   <div className="p-10">
     <h1 className='text-4xl font-extrabold flex items-center justify-center mt-5 mb-8' style={{ fontFamily: '"Times New Roman", Times, serif' }}>Connect us on WhatsApp group</h1>
     <p className='text-center text-2xl mb-18'style={{ fontFamily: '"Times New Roman", Times, serif' }} >
@@ -649,7 +677,7 @@ const Achievments = [
           width="100%"
           height="67%"
           loading="lazy"
-          allowFullScreen="allow"
+          allowFullScreen=""
         />
     </div>
 
@@ -730,8 +758,8 @@ const Achievments = [
   <h1 className='font-bold text-3xl text-center text-black mb-10'style={{ fontFamily: '"Times New Roman", Times, serif' }} >Our Achievements</h1>
 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
 {Achievments.map((item,index)=>(
-  <div key={index} className='border-2 border-orange-500 p-6 rounded-md hover:shadow-lg transition duration-300'>
-    <div className='text-orange-600 text-5xl mb-4'>{item.icon}</div>
+  <div key={index} className='border-2 border-[#f36f12] p-6 rounded-md hover:shadow-lg transition duration-300'>
+    <div className='text-[#f36f12] text-5xl mb-4'>{item.icon}</div>
     <div className='text-black text-3xl font-bold'>{item.value}</div>
     <div className='text-sm text-gray-700'>{item.label}</div>
 
@@ -742,27 +770,30 @@ const Achievments = [
 </div>
 </section>
 
-<section id="newsletter" className="flex items-center justify-center bg-[#f8f9fc] py-10 px-4">
+<section
+  id="newsletter"
+  className="flex items-center justify-center bg-[#f8f9fc] py-10 px-4"
+>
   <div className="w-full max-w-xl text-center">
-    <h2 className="text-[#37517e] font-bold text-2xl md:text-3xl mb-2">Join Our Newsletter</h2>
-    <p className="text-gray-600 mb-6 text-sm">For latest information</p>
+    <h2 className="text-[#37517e] font-bold text-2xl sm:text-3xl mb-2">
+      Join Our Newsletter
+    </h2>
+    <p className="text-gray-600 mb-6 text-sm sm:text-base">
+      For latest information
+    </p>
 
-    <div className="flex items-center bg-white rounded-full shadow-md px-2 py-2">
+    <div className="flex flex-col sm:flex-row items-center bg-white rounded-full shadow-md px-2 py-2">
       <input
         type="text"
         placeholder="Enter your email"
-        className="flex-grow px-4 py-2 rounded-full focus:outline-none text-gray-700"
+        className="w-full sm:flex-grow px-4 py-2 rounded-full text-gray-700 focus:outline-none mb-2 sm:mb-0 sm:mr-2"
       />
-      <button className="bg-gradient-to-r from-[#36d1dc] to-[#5b86e5] text-white px-6 py-2 rounded-full font-medium text-sm hover:opacity-90 transition-all duration-300">
+      <button className="w-full sm:w-auto bg-gradient-to-r from-[#36d1dc] to-[#5b86e5] text-white px-6 py-2 rounded-full font-medium text-sm hover:opacity-90 transition-all duration-300">
         Subscribe
       </button>
     </div>
   </div>
 </section>
-
-
-
-
 
 show && (
   <button
@@ -773,6 +804,83 @@ show && (
     <FaArrowUp width={20} height={20}/>
   </button>
 )
+<section id='payments' className='bg-gray-600 relative px-10 py-10'>
+  <h1 className='text-white text-4xl font-bold absolute top-[80px] left-[160px]'>Payments</h1>
+  <center>
+    <Image src={payment} width={280} height={100} className="mt-25" alt="" />
+  </center>
+  <h1 className='text-white text-3xl ml-30 mt-20'>Ethical Policies</h1>
+  <div className="ml-30 gap-5 mt-5"> 
+
+
+  <p className='mb-5'>The publication of an article in a peer-reviewed journal is an essential building block in the development of a coherent and respected network of knowledge.</p>
+
+<p className='mb-5'>It is a direct reflection of the quality of work of the author and the institutions that support them. Peer-reviewed articles support and embody the scientific method. It is therefore important to agree upon standards of expected ethical behavior.</p>
+
+<p className='mb-5'>Submit a paper .doc/.docx/ latex Format should be in the format strictly specified on the journal or conference website.</p>
+
+<p className='mb-5'>Only the selected papers will get the intimation that will be accepted for publication. Kindly do not submit the paper multiple times; it may lead to cancellation of an article/paper.</p>
+
+<p className='mb-5'>All the papers will be checked with advanced plagiarism detection tools like Turnitin or iThenticate.</p>
+
+<p className='mb-5'>Submitted paper cannot be withdrawn at any condition once it is paid or accepted.</p>
+
+<p className='mb-5'>CREP assists only for the publication of papers in journals or conference, Not for review, comment, correction, Indexing, withdrawn, any other correction in papers etc.</p>
+
+<p className='mb-5'>CREP is responsible up to online or published the papers in the journal link.</p>
+
+<p className='mb-5'>Submitted papers will accept or proceed for publication in the journal or conference after the payment only.</p>
+
+<p className='mb-5'>After the payment, all the copyright of your article will be transferred & reserved to publish in a respective journal or conferences.</p>
+
+<p className='mb-5'>Accepted papers are asked to intimate about the Article Processing Charge(APC) or Conference registration immediately.</p>
+
+<p className='mb-5'>After completion of the Article Processing Charge(APC) or Conference registration fee process, Authors are required to send the scan copy of the registration fee receipt or transaction proof with Remitter’s (Participant/Author) name, Paper-ID and the Purpose of remittance through an email.</p>
+
+<p className='mb-5'>Any modification or changes in the paper will be not accepted after the final submission.</p>
+
+<p className='mb-5'>Authors or conference participants MUST bear all banking charges.</p>
+
+<p className='mb-5'>Conference registration fees do not include accommodation and travel.</p>
+
+<p className='mb-5'>All the communication and latest information or notifications through email or website only.</p>
+
+<p className='mb-5'>Do not send the papers with plagiarism, a plagiarized paper will not be considered for publication in the journal as well as in conference. If found the plagiarism in papers and rejecting from journal and conference, there is no refund and necessary action as per required.</p>
+
+<h3 className='text-3xl mb-5 mt-5'>Cancellation & Refund Policy</h3>
+
+<p className='mb-5'>Wrongly deposit money or extra deposit money will be returned back within 03 weeks if the respective candidate informs us within 02 days after the date of money deposit or transaction.</p>
+
+<p className='mb-5'>In case if an author wishes to withdraw their papers from the journal or cancel the registration from the conference, the full amount will not be refunded. Refunds will be subjected to an administrative charge to be borne by the registrant. Bank charges that occur will also have to be borne by the registrant.</p>
+
+<p className='mb-5'>Approved Charge, once received by CREP, will not be refunded at any circumstances. If any paper is cancelled (by either side) due to duplicate publication, plagiarism, author misconduct, authorship dispute, ethical issue, etc, no refund of Publication charge will be done.</p>
+
+<p className='mb-5'>No refund will be made for cancellation after the paper being scheduled in the conference (technical session)</p>
+
+<p className='mb-5'>If the paper does not reach the reviewing stage. Or not accepted, it will publish in another journal by confirming with authors.</p>
+
+<p className='mb-5'>There are no refunds or cancellation of debts, if the author withdraws his or her paper from consideration; or if he or she declines to revise and resubmit.</p>
+
+<p className='mb-5'>There are no refunds or cancellation of debts, once the paper is published or online in the journal link.</p>
+
+<p className='mb-5'>There are no refunds or cancellation of debts if the published paper is removed due to Copyright Infringement Claims or any other issue.</p>
+
+<p className='mb-5'>After Publish Issue / Indexing, the author can’t make any correction in the article.</p>
+
+<p className='mb-5'>After publishing Issue/Indexing, If the author wants to correction in the article he/she has to pay extra as per changes in the article depending on the possibility.</p>
+
+<p className='mb-5'>There are no refunds or cancellation of debts, if Publications may be delayed sometimes as it depends upon the publisher based on upcoming issues.</p>
+
+<h3 className='mb-5 text-3xl mt-4'>Instructions For Payment</h3>
+
+<p className='mb-5'>If you are making payment by NEFT/ RTGS/ IMPS, please inform us of the NEFT/ RTGS/ IMPS acknowledgement number (UTR) by email. A manuscript will not be processed if UTR number is not sent. Receipt of payment will be given by email only after receiving the money to our account (Please give us 24-48 hrs for acknowledgement).</p>
+
+<p className='mb-5'>Please do not make any cash deposit to our account, only online IMPS/ NEFT/ RTGS is strongly recommended. If you want to do cash deposit to our account, kindly add extra INR100/- as cash deposit charge.</p>
+
+<p className='mb-5 mt-10'>You can make payment through Google pay, Paytm, BHIM app, UPI etc. After the payment completion, you have to go to your Bank statement where you will get a payment reference number related to your particular payment. Please send us that particular payment reference no. from your Bank account statement by taking a screenshot or photo by email or WhatsApp.</p>
+</div>
+</section>
+
 
 <section id="footer" className="bg-[#2B4B77] text-white py-16">
   <div className="max-w-7xl mx-auto px-8">
