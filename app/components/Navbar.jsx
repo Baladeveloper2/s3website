@@ -6,7 +6,7 @@ import Link from "next/link"; // for Next.js routing
 import { Link as ScrollLink } from "react-scroll"; // for smooth scroll
 import logo from "../../public/S3-logo.jpeg";
 import hero from "../../public/hero-img.png";
-import banner from "../../public/banner.png"
+import banner from "../../public/rnd.jpg"
 import { motion } from "framer-motion"; // Import Framer Motion
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,6 +41,10 @@ const ScrolltoTop = ()=>{
   window.scrollTo({top:0,behavior: 'smooth'})
 }
 
+
+
+
+
 const Achievments = [
 {icon: <FaFileAlt/>, value:"2450+",label:"Scopus Publications"},
 {icon: <FaGlobe/>, value:"210+",label:"Web of Science Publications"},
@@ -49,95 +53,98 @@ const Achievments = [
 {icon:<FaSearch/>,value:"190+",label:"Research Proposals"},
 {icon:<FaProjectDiagram/>, value:"25+",label:"Projects Implemented"}
 ]
+
+
+
+const phrases = [
+  "Helping All Researchers",
+  "Supporting Your Innovations",
+  "Guiding Scientific Discoveries",
+  "Your Research, Our Mission"
+];
+
+const [text, setText] = useState('');
+const [phraseIndex, setPhraseIndex] = useState(0);
+const [charIndex, setCharIndex] = useState(0);
+
+useEffect(() => {
+  const currentPhrase = phrases[phraseIndex];
+
+  if (charIndex < currentPhrase.length) {
+    const timeout = setTimeout(() => {
+      setText((prev) => prev + currentPhrase[charIndex]);
+      setCharIndex((prev) => prev + 1);
+    }, 100);
+    return () => clearTimeout(timeout);
+  } else {
+    const pause = setTimeout(() => {
+      setText('');
+      setCharIndex(0);
+      setPhraseIndex((prev) => (prev + 1) % phrases.length);
+    }, 2000); // Show full phrase for 2s before switching
+    return () => clearTimeout(pause);
+  }
+}, [charIndex, phraseIndex]);
+
   return (
     <div>
       {/* Navbar */}
 
-      <nav className="bg-white text-white px-6 space-x-6 space-y-5 py-4 md:w-auto position: sticky top-0 z-50" id="home">
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Image
-            src={logo} 
-            alt="S3 Logo"
-            width={170}
-            height={200}
-            className="mr-4"
-          />
+      <nav className="bg-white sticky top-0 z-50 shadow-md p-5">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Image
+              src={logo}
+              alt="S3 Logo"
+              width={150}
+              height={60}
+              className="mr-4"
+            />
+          </div>
+
+          {/* Hamburger Icon for Mobile */}
+          <button
+            className="md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? (
+              <X size={28} className="text-black" />
+            ) : (
+              <FontAwesomeIcon icon={faBars} className="text-black" />
+            )}
+          </button>
+
+          {/* Desktop Nav Links */}
+          <ul className="hidden md:flex flex-wrap gap-4 text-base lg:text-xl font-medium">
+            <li><Link href="/" className="text-black hover:text-[#e55d00]">Home</Link></li>
+            <li><ScrollLink to="about" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">About Us</ScrollLink></li>
+            <li><ScrollLink to="publications" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Services</ScrollLink></li>
+            <li><ScrollLink to="connect" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Connect Us</ScrollLink></li>
+            <li><ScrollLink to="workshops" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Events & Workshops</ScrollLink></li>
+            <li><ScrollLink to="collaborations" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Collaborate With Us</ScrollLink></li>
+            <li><ScrollLink to="technologies" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Research & Development</ScrollLink></li>
+            <li><ScrollLink to="contact" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Contact Us</ScrollLink></li>
+            <li><ScrollLink to="payments" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Payments</ScrollLink></li>
+          </ul>
         </div>
 
-        {/* Hamburger Icon for Mobile */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={28} className='text-black' /> : <FontAwesomeIcon icon={faBars} className='text-black' />}
-        </button>
-
-        {/* Desktop Nav Links */}
-        <ul className="hidden md:flex space-x-6 text-lg">
-  <li>
-    <Link href="/" className="text-black hover:text-[#e55d00]">Home</Link>
-  </li>
-  <li>
-    <ScrollLink to="about" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
-      About Us
-    </ScrollLink>
-  </li>
-  <li>
-    <ScrollLink to="publications" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
-      Services
-    </ScrollLink>
-  </li>
-  <li>
-    <ScrollLink to="connect" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
-      Connect Us
-    </ScrollLink>
-  </li>
-  <li>
-    <ScrollLink to="workshops" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
-      Events & Workshops
-    </ScrollLink>
-  </li>
-  <li>
-    <ScrollLink to="collaborations" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
-      Collaborate With Us
-    </ScrollLink>
-  </li>
-  <li>
-    <ScrollLink to="technologies" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
-      Research & Development
-    </ScrollLink>
-  </li>
-  <li>
-    <ScrollLink to="contact" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
-      Contact Us
-    </ScrollLink>
-  </li>
-  <li>
-    <ScrollLink to="payments" smooth={true} duration={100} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">
-      Payments
-    </ScrollLink>
-  </li>
-</ul>
-
+        {/* Mobile Nav Links */}
+        {menuOpen && (
+          <ul className="md:hidden mt-4 space-y-3 text-base text-black font-medium">
+            <li><Link href="/" className="hover:text-[#e55d00]">Home</Link></li>
+            <li><ScrollLink to="about" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">About Us</ScrollLink></li>
+            <li><ScrollLink to="publications" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Services</ScrollLink></li>
+            <li><ScrollLink to="connect" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Connect Us</ScrollLink></li>
+            <li><ScrollLink to="workshops" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Events & Workshops</ScrollLink></li>
+            <li><ScrollLink to="collaborations" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Collaborate With Us</ScrollLink></li>
+            <li><ScrollLink to="technologies" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Research & Development</ScrollLink></li>
+            <li><ScrollLink to="contact" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Contact Us</ScrollLink></li>
+            <li><ScrollLink to="payments" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Payments</ScrollLink></li>
+          </ul>
+        )}
       </div>
-
-      {/* Mobile Nav Links */}
-      {menuOpen && (
-  <ul className="md:hidden mt-4 space-y-4 text-lg text-black">
-    <li><Link href="/" className="text-black font-semibold hover:text-white">Home</Link></li>
-    <li><ScrollLink to="about" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">About Us</ScrollLink></li>
-    <li><ScrollLink to="publications" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Services</ScrollLink></li>
-    <li><ScrollLink to="connect" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Connect Us</ScrollLink></li>
-    <li><ScrollLink to="workshops" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Events & Workshops</ScrollLink></li>
-    <li><ScrollLink to="collaborations" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Collaborate With Us</ScrollLink></li>
-    <li><ScrollLink to="technologies" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Research Areas</ScrollLink></li>
-    <li><ScrollLink to="contact" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Contact Us</ScrollLink></li>
-    <li><ScrollLink to="payments" smooth={true} duration={100} offset={-80} className="text-black hover:text-blue-300 cursor-pointer">Payments</ScrollLink></li>
-  </ul>
-)}
-
     </nav>
 
 
@@ -151,13 +158,17 @@ const Achievments = [
     {/* <h3 className="text-2xl md:text-3xl text-gray-500 font-semibold" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       ISO 9001:2015 Certified
     </h3> */}
-    <h1 className="text-2xl md:text-4xl text-black font-bold mb-10 mt-5">
+    {/* <h1 className="text-2xl md:text-4xl text-black font-bold mb-10 mt-5">
       Better Solutions For Your Research
-    </h1>
+    </h1> */}
+     <div className="h-18 mb-6 text-black text-4xl md:text-4xl ">
+          <span>{text}</span>
+          <span className="animate-blink">|</span>
+        </div>
     <h2 className="text-3xl md:text-2xl font-bold text-gray-600 mb-10" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       We are a team of researchers helping in all directions of research.
     </h2>
-    
+     
     <ul className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 text-base md:text-lg mt-0">
      
       <li>
@@ -180,7 +191,7 @@ const Achievments = [
   {/* Right Side Image with Animation */}
   <div className="flex justify-center mt-10 md:mt-0 w-full md:w-1/2">
     <motion.div
-      className="w-full max-w-[650px] sm:max-w-[350px] flex justify-center"
+      className="w-full max-w-[700px] sm:max-w-[400px] flex justify-center"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: [0, -20, 0] }}
       transition={{ 
@@ -193,8 +204,8 @@ const Achievments = [
       <Image 
         src={banner} 
         alt="Our Work"
-        width={650}
-        height={350}
+        width={700}
+        height={400}
         className="w-full h-auto object-contain"
       />
     </motion.div>
@@ -476,7 +487,7 @@ const Achievments = [
   </div>
 </section>
 
-<section id="collaborations" className="py-5 px-3  text-black">
+<section id="collaborations" className="py-5 px-3 bg-gray-100  text-black">
   <div className="max-w-7xl mx-auto text-center">
     <h2 className="text-3xl font-bold mb-6"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Collaborations</h2>
     <p className="text-lg mb-12"style={{ fontFamily: '"Times New Roman", Times, serif' }}>
@@ -508,7 +519,7 @@ const Achievments = [
 </section>
 
 
-<section id="technologies" className="py-20 px-8 bg-gray-50 text-gray-800">
+<section id="technologies" className="py-20 px-8 bg-gray-100 text-gray-800">
   <div className="max-w-7xl mx-auto text-center">
     <h2 className="text-4xl font-bold leading-tight mb-12"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Expertise in Software, Web, and Mobile Development</h2>
 
@@ -636,7 +647,7 @@ const Achievments = [
 
 
 
-<section className="max-w-6xl mx-auto p-4 sm:p-6 md:p-10" id="contact">
+<section className="max-w-8xl bg-[#f8f9fc] mx-auto p-4 sm:p-6 md:p-10" id="contact">
   <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
     CONTACT
   </h2>
@@ -772,9 +783,9 @@ const Achievments = [
 
 <section
   id="newsletter"
-  className="flex items-center justify-center bg-[#f8f9fc] py-10 px-4"
+  className="flex items-center justify-center bg-[#f8f9fc] py-15 px-4"
 >
-  <div className="w-full max-w-xl text-center">
+  <div className="w-full max-w-xl text-center ">
     <h2 className="text-[#37517e] font-bold text-2xl sm:text-3xl mb-2">
       Join Our Newsletter
     </h2>
@@ -804,13 +815,13 @@ show && (
     <FaArrowUp width={20} height={20}/>
   </button>
 )
-<section id='payments' className='bg-gray-600 relative px-10 py-10'>
-  <h1 className='text-white text-4xl font-bold absolute top-[80px] left-[160px]'>Payments</h1>
+<section id='payments' className='bg-[#f8f9fc] relative px-10 py-10'>
+  <h1 className='text-black text-4xl font-bold absolute top-[80px] left-[160px]'>Payments</h1>
   <center>
     <Image src={payment} width={280} height={100} className="mt-25" alt="" />
   </center>
-  <h1 className='text-white text-3xl ml-30 mt-20'>Ethical Policies</h1>
-  <div className="ml-30 gap-5 mt-5"> 
+  <h1 className='text-black text-3xl ml-30 mt-20'>Ethical Policies</h1>
+  <div className="ml-30 gap-5 mt-5 text-black text-xl"> 
 
 
   <p className='mb-5'>The publication of an article in a peer-reviewed journal is an essential building block in the development of a coherent and respected network of knowledge.</p>

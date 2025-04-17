@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
+}
+
 body {
   background-color: #2B4B77; /* Matching the blue background */
   color: white;
