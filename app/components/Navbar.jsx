@@ -182,7 +182,7 @@ useEffect(() => {
     {/* <h1 className="text-2xl md:text-4xl text-black font-bold mb-10 mt-5">
       Better Solutions For Your Research
     </h1> */}
-     <div className="h-18 mb-6 text-black text-4xl md:text-4xl ">
+     <div className="h-18 mb-10 mt-12 text-black text-4xl md:text-4xl ">
           <span>{text}</span>
           <span className="animate-blink">|</span>
         </div>
@@ -190,7 +190,7 @@ useEffect(() => {
       We are a team of researchers helping in all directions of research.
     </h2>
      
-    <ul className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 text-base md:text-lg mt-0">
+    <ul className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 text-base md:text-lg mt-5 mb-5">
      
       <li>
         <Link href="">
@@ -255,7 +255,7 @@ useEffect(() => {
   style={{ fontFamily: '"Times New Roman", Times, serif' }}
   className="text-4xl font-bold text-gray-900 md:font-medium"
 >
-  About S3 Research & Support
+  About S3 PRZ
 </h2>
 
     <div className="w-full border-b-4 border-blue-400 mx-auto mt-2"></div>
@@ -802,7 +802,7 @@ useEffect(() => {
 </div>
 </section>
 
-<section
+{/* <section
   id="newsletter"
   className="flex items-center justify-center bg-[#f8f9fc] py-15 px-4"
 >
@@ -825,7 +825,7 @@ useEffect(() => {
       </button>
     </div>
   </div>
-</section>
+</section> */}
 
 show && (
   <button
