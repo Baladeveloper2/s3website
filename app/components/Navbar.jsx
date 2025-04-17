@@ -131,7 +131,7 @@ useEffect(() => {
         </div>
 
         {/* Mobile Nav Links */}
-        {menuOpen && (
+        {/* {menuOpen && (
           <ul className="md:hidden mt-4 space-y-3 text-base text-black font-medium">
             <li><Link href="/" className="hover:text-[#e55d00]">Home</Link></li>
             <li><ScrollLink to="about" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">About Us</ScrollLink></li>
@@ -143,8 +143,29 @@ useEffect(() => {
             <li><ScrollLink to="contact" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Contact Us</ScrollLink></li>
             <li><ScrollLink to="payments" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Payments</ScrollLink></li>
           </ul>
-        )}
+        )} */}
       </div>
+      {menuOpen && (
+  <div className="fixed top-0 left-0 w-full h-full bg-white z-50 p-6 overflow-y-auto">
+    <div className="flex justify-between items-center mb-6">
+      <Image src={logo} alt="Logo" width={150} height={40} />
+      <button onClick={() => setMenuOpen(false)}>
+        <X size={28} className="text-black" />
+      </button>
+    </div>
+    <ul className="space-y-6 text-lg text-black">
+      <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+      <li><ScrollLink to="about" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">About Us</ScrollLink></li>
+      <li><ScrollLink to="publications" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Services</ScrollLink></li>
+      <li><ScrollLink to="connect" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Connect Us</ScrollLink></li>
+      <li><ScrollLink to="workshops" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Events & Workshops</ScrollLink></li>
+      <li><ScrollLink to="collaborations" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Collaborate With Us</ScrollLink></li>
+      <li><ScrollLink to="technologies" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Research & Development</ScrollLink></li>
+      <li><ScrollLink to="contact" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Contact Us</ScrollLink></li>
+      <li><ScrollLink to="payments" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Payments</ScrollLink></li>
+    </ul>
+  </div>
+)}
     </nav>
 
 
@@ -816,12 +837,12 @@ show && (
   </button>
 )
 <section id='payments' className='bg-[#f8f9fc] relative px-10 py-10'>
-  <h1 className='text-black text-4xl font-bold absolute top-[80px] left-[160px]'>Payments</h1>
+  <h1 className='text-black text-4xl font-bold absolute top-[80px] md:left-[160px] left[0px]'>Payments</h1>
   <center>
-    <Image src={payment} width={280} height={100} className="mt-25" alt="" />
+    <Image src={payment} width={280} height={100} className="mt-25 " alt="" />
   </center>
-  <h1 className='text-black text-3xl ml-30 mt-20'>Ethical Policies</h1>
-  <div className="ml-30 gap-5 mt-5 text-black text-xl"> 
+  <h1 className='text-black text-3xl lg:ml-30 mt-20 ml-0'>Ethical Policies</h1>
+  <div className="ml-4 md:ml-30 gap-5 mt-5 text-black text-lg md:text-xl"> 
 
 
   <p className='mb-5'>The publication of an article in a peer-reviewed journal is an essential building block in the development of a coherent and respected network of knowledge.</p>
