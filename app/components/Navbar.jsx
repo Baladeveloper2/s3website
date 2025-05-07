@@ -186,14 +186,14 @@ useEffect(() => {
           {/* Desktop Nav Links */}
           <ul className="hidden md:flex flex-wrap gap-4 text-base lg:text-xl font-medium">
             <li><Link href="/" className="text-black hover:text-[#e55d00]">Home</Link></li>
-            <li><ScrollLink to="about" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">About Us</ScrollLink></li>
-            <li><ScrollLink to="publications" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Services</ScrollLink></li>
-            <li><ScrollLink to="connect" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Connect Us</ScrollLink></li>
-            <li><ScrollLink to="workshops" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Events & Workshops</ScrollLink></li>
-            <li><ScrollLink to="collaborations" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Collaborate With Us</ScrollLink></li>
-            <li><ScrollLink to="technologies" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Research & Development</ScrollLink></li>
-            <li><ScrollLink to="contact" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Contact Us</ScrollLink></li>
-            <li><ScrollLink to="payments" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Payments</ScrollLink></li>
+            <li><Link href="about" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">About Us</Link></li>
+            <li><Link href="publications" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Services</Link></li>
+            <li><Link href="connect" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Connect Us</Link></li>
+            <li><Link href="workshops" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Events & Workshops</Link></li>
+            <li><Link href="collaborations" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Collaborate With Us</Link></li>
+            <li><Link href="technologies" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Research & Development</Link></li>
+            <li><Link href="contact" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Contact Us</Link></li>
+            <li><Link href="payments" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Payments</Link></li>
           </ul>
         </div>
 
@@ -209,14 +209,14 @@ useEffect(() => {
     </div>
     <ul className="space-y-6 text-lg text-black">
       <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-      <li><ScrollLink to="about" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">About Us</ScrollLink></li>
-      <li><ScrollLink to="publications" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Services</ScrollLink></li>
-      <li><ScrollLink to="connect" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Connect Us</ScrollLink></li>
-      <li><ScrollLink to="workshops" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Events & Workshops</ScrollLink></li>
-      <li><ScrollLink to="collaborations" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Collaborate With Us</ScrollLink></li>
-      <li><ScrollLink to="technologies" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Research & Development</ScrollLink></li>
-      <li><ScrollLink to="contact" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Contact Us</ScrollLink></li>
-      <li><ScrollLink to="payments" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Payments</ScrollLink></li>
+      <li><Link href="about" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">About Us</Link></li>
+      <li><Link href="publications" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Services</Link></li>
+      <li><Link href="connect" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Connect Us</Link></li>
+      <li><Link href="workshops" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Events & Workshops</Link></li>
+      <li><Link href="collaborations" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Collaborate With Us</Link></li>
+      <li><Link href="technologies" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Research & Development</Link></li>
+      <li><Link href="contact" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Contact Us</Link></li>
+      <li><Link href="payments" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Payments</Link></li>
     </ul>
   </div>
 )}
