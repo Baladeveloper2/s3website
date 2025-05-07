@@ -27,6 +27,7 @@ import axios from "axios"
 import { toast } from 'react-toastify';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import {FaArrowUp,FaUsers,FaFileAlt,FaGlobe,FaChalkboardTeacher,FaProjectDiagram,FaSearch} from "react-icons/fa"
+import Nav from "./Nav"
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const[show,setshow] = useState(false);
@@ -155,13 +156,14 @@ useEffect(() => {
 
   return (
     <div>
-      {/* Navbar */}
 
+    
       <nav className="bg-white sticky top-0 z-50 shadow-md p-2">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
+      
+      
+        <div className="flex items-center">
             <Image
               src={logo}
               alt="S3 Logo"
@@ -171,7 +173,6 @@ useEffect(() => {
             />
           </div>
 
-          {/* Hamburger Icon for Mobile */}
           <button
             className="md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -183,17 +184,16 @@ useEffect(() => {
             )}
           </button>
 
-          {/* Desktop Nav Links */}
           <ul className="hidden md:flex flex-wrap gap-4 text-base lg:text-xl font-medium">
             <li><Link href="/" className="text-black hover:text-[#e55d00]">Home</Link></li>
-            <li><Link href="about" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">About Us</Link></li>
-            <li><Link href="publications" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Services</Link></li>
-            <li><Link href="connect" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Connect Us</Link></li>
-            <li><Link href="workshops" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Events & Workshops</Link></li>
-            <li><Link href="collaborations" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Collaborate With Us</Link></li>
-            <li><Link href="technologies" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Research & Development</Link></li>
-            <li><Link href="contact" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Contact Us</Link></li>
-            <li><Link href="payments" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Payments</Link></li>
+            <li><Link href="#about" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">About Us</Link></li>
+            <li><Link href="#publications" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Services</Link></li>
+            <li><Link href="#connect" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Connect Us</Link></li>
+            <li><Link href="#workshops" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Events & Workshops</Link></li>
+            <li><Link href="#collaborations" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Collaborate With Us</Link></li>
+            <li><Link href="#technologies" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Research & Development</Link></li>
+            <li><Link href="#contact" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Contact Us</Link></li>
+            <li><Link href="#payments" smooth duration={300} offset={-80} className="text-black hover:text-[#e55d00] cursor-pointer">Payments</Link></li>
           </ul>
         </div>
 
@@ -209,21 +209,20 @@ useEffect(() => {
     </div>
     <ul className="space-y-6 text-lg text-black">
       <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-      <li><Link href="about" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">About Us</Link></li>
-      <li><Link href="publications" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Services</Link></li>
-      <li><Link href="connect" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Connect Us</Link></li>
-      <li><Link href="workshops" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Events & Workshops</Link></li>
-      <li><Link href="collaborations" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Collaborate With Us</Link></li>
-      <li><Link href="technologies" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Research & Development</Link></li>
-      <li><Link href="contact" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Contact Us</Link></li>
-      <li><Link href="payments" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Payments</Link></li>
+      <li><Link href="#about" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">About Us</Link></li>
+      <li><Link href="#publications" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Services</Link></li>
+      <li><Link href="#connect" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Connect Us</Link></li>
+      <li><Link href="#workshops" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Events & Workshops</Link></li>
+      <li><Link href="#collaborations" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Collaborate With Us</Link></li>
+      <li><Link href="#technologies" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Research & Development</Link></li>
+      <li><Link href="#contact" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Contact Us</Link></li>
+      <li><Link href="#payments" smooth duration={300} offset={-80} onClick={() => setMenuOpen(false)} className="cursor-pointer">Payments</Link></li>
     </ul>
   </div>
 )}
-    </nav>
+    </nav> 
+ 
 
-
-      {/* Content Below Navbar - Same BG Color */}
       <main className="bg-white text-white py-2 px-0">
 
         {/* Section with Image & Text */}
@@ -303,7 +302,7 @@ useEffect(() => {
 
 
   <section id="about" className="py-16 px-6 bg-white text-gray-800">
-  <div className="max-w-5xl mx-auto text-center">
+  <div className="max-w-5xl mx-auto text-center mt-8">
     
 <h2
   style={{ fontFamily: '"Times New Roman", Times, serif' }}
@@ -388,7 +387,7 @@ useEffect(() => {
 
 
          {/* Below Hero Section - Page Content with Navigation */}
-         <section id="publications" className="py-16 px-6 bg-gray-100 text-gray-800">
+         <section id="publications" className="py-16 mt-12 px-6 bg-gray-100 text-gray-800">
   <div className="max-w-5xl mx-auto text-center">
     
     {/* Section Title */}
@@ -469,11 +468,11 @@ useEffect(() => {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   }}
-  className="text-white"
+  className="text-white "
 >
 
   <div className="p-10">
-    <h1 className='text-4xl font-extrabold flex items-center justify-center mt-5 mb-8' style={{ fontFamily: '"Times New Roman", Times, serif' }}>Connect us on WhatsApp group</h1>
+    <h1 className='text-4xl   font-extrabold flex items-center justify-center mt-15 mb-8' style={{ fontFamily: '"Times New Roman", Times, serif' }}>Connect us on WhatsApp group</h1>
     <p className='text-center text-2xl mb-18'style={{ fontFamily: '"Times New Roman", Times, serif' }} >
       On WhatsApp group you will find all updates related to Research, Publication, International and National Conferences, Workshop, Seminars, Webinars, Trainings and Research Guidance
     </p>
@@ -490,7 +489,7 @@ useEffect(() => {
 
 
 
-<section id="workshops" className="py-16 px-6 bg-gray-100 text-gray-800">
+<section id="workshops" className="py-25  px-6 bg-gray-100 text-gray-800">
   <div className="max-w-5xl mx-auto text-center">
     
     {/* Section Title */}
@@ -569,10 +568,11 @@ useEffect(() => {
   </div>
 </section>
 
-<section id="collaborations" className="py-5 px-3 bg-gray-100  text-black">
+<section id="collaborations" className="py-4 px-3 bg-gray-100  text-black">
   <div className="max-w-7xl mx-auto text-center">
-    <h2 className="text-3xl font-bold mb-6"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Collaborations</h2>
-    <p className="text-lg mb-12"style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+    <h2 className="text-3xl font-bold "  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Our Collaborations</h2>
+    <div className="w-full border-b-4 border-blue-400 mx-auto mt-2"></div>
+    <p className="text-lg mt-8"style={{ fontFamily: '"Times New Roman", Times, serif' }}>
       We are proud to collaborate with leading organizations and institutions to bring innovative technologies to the forefront.
     </p>
     

@@ -1,15 +1,13 @@
 'use client';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-
-
 import { X } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import logo from '@/public/logo.png'; // Ensure path is correct
+import logo from '../../public/S3-logo.jpeg'; // Ensure path is correct
 
 const Navbars = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,6 +38,7 @@ const Navbars = () => {
         href={linkHref}
         scroll={true}
         className="text-black hover:text-[#e55d00]"
+        onClick={() => setMenuOpen(false)} // Close mobile menu after click
       >
         {item.name}
       </Link>
@@ -90,7 +89,7 @@ const Navbars = () => {
           </div>
           <ul className="space-y-6 text-lg text-black">
             {menuItems.map((item) => (
-              <li key={item.name} onClick={() => setMenuOpen(false)}>
+              <li key={item.name}>
                 {renderNavItem(item)}
               </li>
             ))}
