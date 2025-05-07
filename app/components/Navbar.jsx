@@ -3,7 +3,6 @@ import 'font-awesome/css/font-awesome.min.css';
 import payment from "../../public/payments1.jpeg"
 import Image from "next/image";
 import Link from "next/link"; 
-import { Link as ScrollLink } from "react-scroll"; // for smooth scroll
 import logo from "../../public/S3-logo.jpeg";
 import hero from "../../public/hero-img.png";
 import banner from "../../public/rnd.jpg"
