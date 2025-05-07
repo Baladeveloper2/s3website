@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         {children}
         <ToastContainer 
         position="top-right"
-        autoClose={1500}
+        autoClose={1300}
         newestOnTop={false}
         rtl={false}
         draggable
