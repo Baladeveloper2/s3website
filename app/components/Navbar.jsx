@@ -2,7 +2,7 @@
 import 'font-awesome/css/font-awesome.min.css';
 import payment from "../../public/payments1.jpeg"
 import Image from "next/image";
-import Link from "next/link"; // for Next.js routing
+import Link from "next/link"; 
 import { Link as ScrollLink } from "react-scroll"; // for smooth scroll
 import logo from "../../public/S3-logo.jpeg";
 import hero from "../../public/hero-img.png";
@@ -21,11 +21,78 @@ import client6 from "../../public/client-6.png"
 import client7 from "../../public/client-7.png"
 import client8 from "../../public/client-8.png"
 import cta from "../../public/cta-bg.jpg"
+import {useForm} from "react-hook-form"
+import {useFormik} from "formik"
+import * as Yup from "yup"
+import axios from "axios"
+import { toast } from 'react-toastify';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import {FaArrowUp,FaUsers,FaFileAlt,FaGlobe,FaChalkboardTeacher,FaProjectDiagram,FaSearch} from "react-icons/fa"
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const[show,setshow] = useState(false);
+const [FormData,setFormData] = useState({
+  name:"",
+  email:"",
+  phone:"",
+  subject:"",
+  message:""
+})
+
+const formik = useFormik({
+  initialValues: {
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  },
+  validationSchema: Yup.object({
+    name: Yup.string().min(3).required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    phone: Yup.string()
+      .matches(/^\d{10}$/, "Phone must be exactly 10 digits")
+      .required("Phone is required"),
+    subject: Yup.string().min(3).required("Subject is required"),
+    message: Yup.string().min(10).required("Message is required"),
+  }),
+  onSubmit: async (values, { resetForm }) => {
+    try {
+      const res = await axios.post(
+        "https://backend-code-production-dade.up.railway.app/send-email",
+        values
+      );
+      if (res.status === 200) {
+        toast.success("Message sent successfully");
+        resetForm();
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message");
+    }
+  },
+});
+
+  
+// const handlesubmit = async(e)=>{
+//   e.preventDefault();
+//   try{
+//     const res = await axios.post(
+//       "https://backend-code-production-dade.up.railway.app/send-email",
+//       ...FormDatas
+//     );
+//     if (res.status === 200) {
+//       toast.success("Message sent successfully");
+//       resetForm();
+//     }
+//   }
+//   catch(error){
+//     console.error(error);
+//     toast.error("Failed to send message");
+
+    
+//   }
+// }
 
   useEffect(()=>{
     const checkScroll =()=>{
@@ -81,7 +148,8 @@ useEffect(() => {
       setText('');
       setCharIndex(0);
       setPhraseIndex((prev) => (prev + 1) % phrases.length);
-    }, 2000); // Show full phrase for 2s before switching
+    }, 2000); 
+    // Show full phrase for 2s before switching
     return () => clearTimeout(pause);
   }
 }, [charIndex, phraseIndex]);
@@ -90,7 +158,7 @@ useEffect(() => {
     <div>
       {/* Navbar */}
 
-      <nav className="bg-white sticky top-0 z-50 shadow-md p-5">
+      <nav className="bg-white sticky top-0 z-50 shadow-md p-2">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -130,20 +198,7 @@ useEffect(() => {
           </ul>
         </div>
 
-        {/* Mobile Nav Links */}
-        {/* {menuOpen && (
-          <ul className="md:hidden mt-4 space-y-3 text-base text-black font-medium">
-            <li><Link href="/" className="hover:text-[#e55d00]">Home</Link></li>
-            <li><ScrollLink to="about" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">About Us</ScrollLink></li>
-            <li><ScrollLink to="publications" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Services</ScrollLink></li>
-            <li><ScrollLink to="connect" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Connect Us</ScrollLink></li>
-            <li><ScrollLink to="workshops" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Events & Workshops</ScrollLink></li>
-            <li><ScrollLink to="collaborations" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Collaborate With Us</ScrollLink></li>
-            <li><ScrollLink to="technologies" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Research & Development</ScrollLink></li>
-            <li><ScrollLink to="contact" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Contact Us</ScrollLink></li>
-            <li><ScrollLink to="payments" smooth duration={300} offset={-80} className="hover:text-[#e55d00] cursor-pointer">Payments</ScrollLink></li>
-          </ul>
-        )} */}
+
       </div>
       {menuOpen && (
   <div className="fixed top-0 left-0 w-full h-full bg-white z-50 p-6 overflow-y-auto">
@@ -262,9 +317,16 @@ useEffect(() => {
 
     {/* Description */}
     <p className="text-lg leading-relaxed text-gray-700 mt-6">
-    S3 is a Research & Development venture and was built-in as S3 Technologies in 2007. The journey started with limited technical experts;
-    but our strive work and dedication has made us reach an impressive success and tech giant for past 14 years in our field.We have expanded ourselves with clients in an surroundings.
-    Our organization has now enhanced our services in other education fields like Funded Projects,Software Guidance Division, and more.
+    S3-PRZ  is a Research  and Publications 
+    venture and was built-in as S3 Technologies in 2007.
+    The journey started with limited technical experts;
+    but our strive work and dedication has made us reach an impressive success and tech giant for past 14 years in our field. We have expanded ourselves with 
+    clients in an surroundings.Our organization has now enhanced our services in other education fields supports  like Funded Projects,
+    Patent filling and  Software Guidance Division, and more. </p>
+    <p className="text-lg leading-relaxed text-gray-700 mt-6">
+    S3-PRZ  Research and Publications  has skilled domain experts in all fields right from  research topic Selection, Literature Review, Problem Identification to Solution for Paper writing 
+    and developing implementation part with innovative concept idealization in various department like All Engineering Departments ,Art and Science Departments and all domain areas 
+    (Not limited in departments and fields) Along with this experts work for Thesis writing services and for Journal  Publication support.
     </p>
   </div>
 
@@ -452,7 +514,7 @@ useEffect(() => {
       <p className="text-gray-600 mt-2">
         A global platform for researchers to present and publish their work in esteemed journals.
       </p>
-      <a href="#" className="text-blue-600 font-bold mt-4 inline-block">Learn More →</a>
+      <Link href="#" className="text-blue-600 font-bold mt-4 inline-block">Learn More →</Link>
     </div>
 
     {/* Research Reading Skill Exam */}
@@ -462,7 +524,7 @@ useEffect(() => {
       <p className="text-gray-600 mt-2">
         Evaluate and enhance your research reading skills with our structured exam program.
       </p>
-      <a href="#" className="text-blue-600 font-bold mt-4 inline-block">Download Exam Brochure →</a>
+      <Link href="#" className="text-blue-600 font-bold mt-4 inline-block">Download Exam Brochure →</Link>
     </div>
 
     {/* MOU Collaborations */}
@@ -472,7 +534,7 @@ useEffect(() => {
       <p className="text-gray-600 mt-2">
         We invite international organizations to collaborate in research events, sponsorship, and promotion.
       </p>
-      <a href="#" className="text-blue-600 font-bold mt-4 inline-block">Collaborate with Us →</a>
+      <Link href="#" className="text-blue-600 font-bold mt-4 inline-block">Collaborate with Us →</Link>
     </div>
 
     {/* Appointment */}
@@ -482,7 +544,7 @@ useEffect(() => {
       <p className="text-gray-600 mt-2">
         Want to conduct a conference, workshop, or seminar? Get in touch with us today.
       </p>
-      <a href="mailto:care@creppvtltd.com" className="text-blue-600 font-bold mt-4 inline-block">Contact Us →</a>
+      <Link href="mailto:care@creppvtltd.com" className="text-blue-600 font-bold mt-4 inline-block">Contact Us →</Link>
     </div>
 
     {/* Call for Paper */}
@@ -492,7 +554,7 @@ useEffect(() => {
       <p className="text-gray-600 mt-2">
         Submit your abstracts or full papers to SCOPUS, Web of Science, and IEEE-indexed journals.
       </p>
-      <a href="#" className="text-blue-600 font-bold mt-4 inline-block">Submit Paper →</a>
+      <Link href="#" className="text-blue-600 font-bold mt-4 inline-block">Submit Paper →</Link>
     </div>
 
     {/* Be a Speaker, Reviewer & Editor */}
@@ -502,7 +564,7 @@ useEffect(() => {
       <p className="text-gray-600 mt-2">
         Join as a world-class speaker, reviewer, or editor in top international research events.
       </p>
-      <a href="#" className="text-blue-600 font-bold mt-4 inline-block">Join Us →</a>
+      <Link href="#" className="text-blue-600 font-bold mt-4 inline-block">Join Us →</Link>
     </div>
 
   </div>
@@ -521,9 +583,9 @@ useEffect(() => {
       <p className="text-lg mb-6" >
         A remarkable event that brings together experts from around the globe to discuss the future of smart and sustainable societies, and the role of technology in achieving greener, more connected communities.
       </p>
-      <a href="https://example.com" target="_blank" rel="noopener noreferrer" className="inline-block text-indigo-600 hover:text-indigo-800 font-semibold">
+      <Link href="https://example.com" target="_blank" rel="noopener noreferrer" className="inline-block text-indigo-600 hover:text-indigo-800 font-semibold">
         Learn More about ICT-SGS-1
-      </a>
+      </Link>
     </div>
 
     {/* Journals Collaboration */}
@@ -532,9 +594,9 @@ useEffect(() => {
       <p className="text-lg mb-6">
         A2Z Journals is dedicated to publishing open-access, scholarly, peer-reviewed, interdisciplinary, and fully refereed international journals. We aim to provide a platform for scientific research and innovative ideas to reach a global audience.
       </p>
-      <a href="https://a2zjournals.com" target="_blank" rel="noopener noreferrer" className="inline-block text-indigo-600 hover:text-indigo-800 font-semibold">
+      <Link href="https://a2zjournals.com" target="_blank" rel="noopener noreferrer" className="inline-block text-indigo-600 hover:text-indigo-800 font-semibold">
         Explore A2Z Journals
-      </a>
+      </Link>
     </div>
   </div>
 </section>
@@ -561,7 +623,7 @@ useEffect(() => {
       <p className="text-gray-600 mb-4">
         Ideal for handling large volumes of data and concurrent users in enterprise systems, big data platforms, and cloud apps.
       </p>
-      <a href="https://www.oracle.com/java/" target="_blank" className="text-indigo-600 font-semibold">Learn More about Java</a>
+      <Link href="https://www.oracle.com/java/" target="_blank" className="text-indigo-600 font-semibold">Learn More about Java</Link>
     </div>
 
     {/* Node.js */}
@@ -581,7 +643,7 @@ useEffect(() => {
       <p className="text-gray-600 mb-4">
         Ideal for microservices, APIs, and applications requiring real-time data exchange.
       </p>
-      <a href="https://nodejs.org/" target="_blank" className="text-green-600 font-semibold">Learn More about Node.js</a>
+      <Link href="https://nodejs.org/" target="_blank" className="text-green-600 font-semibold">Learn More about Node.js</Link>
     </div>
 
     {/* React.js */}
@@ -601,7 +663,7 @@ useEffect(() => {
       <p className="text-gray-600 mb-4">
         Best for single-page applications (SPAs) and complex web apps with rich UIs.
       </p>
-      <a href="https://reactjs.org/" target="_blank" className="text-blue-600 font-semibold">Learn More about React.js</a>
+      <Link href="https://reactjs.org/" target="_blank" className="text-blue-600 font-semibold">Learn More about React.js</Link>
     </div>
 
     {/* Next.js */}
@@ -621,7 +683,7 @@ useEffect(() => {
       <p className="text-gray-600 mb-4">
         Ideal for high-performance platforms like e-commerce sites and blogs.
       </p>
-      <a href="https://nextjs.org/" target="_blank" className="text-teal-600 font-semibold">Learn More about Next.js</a>
+      <Link href="https://nextjs.org/" target="_blank" className="text-teal-600 font-semibold">Learn More about Next.js</Link>
     </div>
 
     {/* Flutter */}
@@ -641,7 +703,7 @@ useEffect(() => {
       <p className="text-gray-600 mb-4">
         Perfect for visually appealing, high-performance apps on tight deadlines.
       </p>
-      <a href="https://flutter.dev/" target="_blank" className="text-purple-600 font-semibold">Learn More about Flutter</a>
+      <Link href="https://flutter.dev/" target="_blank" className="text-purple-600 font-semibold">Learn More about Flutter</Link>
     </div>
 
     {/* AI */}
@@ -661,7 +723,7 @@ useEffect(() => {
       <p className="text-gray-600 mb-4">
         Expertise in natural language processing, computer vision, chatbots, predictive modeling, and AI-driven analytics.
       </p>
-      <a href="https://www.ibm.com/artificial-intelligence" target="_blank" className="text-red-600 font-semibold">Learn More about AI</a>
+      <Link href="https://www.ibm.com/artificial-intelligence" target="_blank" className="text-red-600 font-semibold">Learn More about AI</Link>
     </div>
   </div>
 </section>
@@ -693,7 +755,7 @@ useEffect(() => {
         <FontAwesomeIcon icon={faSquareEnvelope} className="text-black mt-1 w-5 h-5 mr-3 " />
         <div>
         <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='text-black mr-2'>Email:</strong> 
-        <a href="mailto:s3research4@gmail.com" className="text-black mr-3"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>s3research4@gmail.com</a>
+        <Link href="mailto:s3research4@gmail.com" className="text-black mr-3"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>s3research4@gmail.com</Link>
         </div>
       </div>
 
@@ -701,7 +763,7 @@ useEffect(() => {
       <div className="flex items-start mb-6">
         <FontAwesomeIcon icon={faPhone} className="text-black mt-1 w-5 h-5 mr-3" />
         <strong  style={{ fontFamily: '"Times New Roman", Times, serif' }} className='mr-2 text-black'>Call:</strong> 
-        <p className="text-black "><a href="tel:+919789339435">+91 9789339435</a></p>
+        <p className="text-black "><Link href="tel:+919789339435">+91 9789339435</Link></p>
       </div>
      
       <iframe
@@ -714,74 +776,96 @@ useEffect(() => {
     </div>
 
     {/* Right: Form */}
-    <form className="bg-white shadow-md p-6 sm:p-8 md:p-10 rounded space-y-6 text-black max-w-5xl">
-      <div className="grid grid-cols-1  gap-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter your name"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-       
+    <form onSubmit={formik.handleSubmit} className="bg-white shadow-md p-6 sm:p-8 md:p-10 rounded space-y-6 text-black max-w-5xl">
+  <div className="grid grid-cols-1 gap-4">
+    {/* Name */}
+    <div>
+      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+      <input
+        type="text"
+        id="name"
+        {...formik.getFieldProps("name")}
+        placeholder="Enter your name"
+        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      {formik.touched.name && formik.errors.name && (
+        <p className="text-red-500 text-sm mt-1">{formik.errors.name}</p>
+      )}
+    </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+    {/* Email */}
+    <div>
+      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        {...formik.getFieldProps("email")}
+        placeholder="Enter your email"
+        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      {formik.touched.email && formik.errors.email && (
+        <p className="text-red-500 text-sm mt-1">{formik.errors.email}</p>
+      )}
+    </div>
 
-        <div>
-          <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
-          <input
-            type="text"
-            id="mobile"
-            name="mobile"
-            placeholder="Enter your mobile number"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+    {/* Phone */}
+    <div>
+      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+      <input
+        type="tel"
+        id="phone"
+        {...formik.getFieldProps("phone")}
+        placeholder="Enter your mobile number"
+        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      {formik.touched.phone && formik.errors.phone && (
+        <p className="text-red-500 text-sm mt-1">{formik.errors.phone}</p>
+      )}
+    </div>
 
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            placeholder="Subject"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-      </div>
+    {/* Subject */}
+    <div>
+      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+      <input
+        type="text"
+        id="subject"
+        {...formik.getFieldProps("subject")}
+        placeholder="Subject"
+        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      {formik.touched.subject && formik.errors.subject && (
+        <p className="text-red-500 text-sm mt-1">{formik.errors.subject}</p>
+      )}
+    </div>
+  </div>
 
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          placeholder="Enter your message"
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        ></textarea>
-      </div>
+  {/* Message */}
+  <div>
+    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+    <textarea
+      id="message"
+      rows={4}
+      {...formik.getFieldProps("message")}
+      placeholder="Enter your message"
+      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+    ></textarea>
+    {formik.touched.message && formik.errors.message && (
+      <p className="text-red-500 text-sm mt-1">{formik.errors.message}</p>
+    )}
+  </div>
 
-      <div className="text-center">
-        <button
-          type="submit"
-          className="bg-[#36b3ec] text-white px-6 py-2 rounded-md hover:bg-[#f36f12] transition-colors"
-        >
-          Apply Now
-        </button>
-      </div>
-    </form>
+  {/* Submit */}
+  <div className="text-center">
+    <button 
+      type="submit"
+      className="bg-[#36b3ec] text-white px-6 py-2 rounded-md hover:bg-[#f36f12] transition-colors"
+    >
+      Apply Now
+    </button>
+  </div>
+</form>
+
+
   </div>
 </section>
 
@@ -929,14 +1013,14 @@ show && (
         <h4 className="text-xl font-semibold mb-4"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>
         Quick Links</h4>
         <ul className="space-y-2">
-    <li><a href="#home" className="hover:text-[#f36f12]">Home</a></li>
-    <li><a href="#about" className="hover:text-[#f36f12]">About</a></li>
-    <li><a href="#publications" className="hover:text-[#f36f12]">Publications</a></li>
-    {/* <li><a href="#connect" className="hover:underline">Connect Us</a></li> */}
-    {/* <li><a href="#workshops" className="hover:underline">Workshop & Events</a></li> */}
-    {/* <li><a href="#collaborations" className="hover:underline">Collaborations</a></li> */}
-    {/* <li><a href="#technologies" className="hover:underline">Research & Development</a></li> */}
-    <li><a href="#contact" className="hover:text-[#f36f12]">Contact</a></li>
+    <li><Link href="#home" className="hover:text-[#f36f12]">Home</Link></li>
+    <li><Link href="#about" className="hover:text-[#f36f12]">About</Link></li>
+    <li><Link href="#publications" className="hover:text-[#f36f12]">Publications</Link></li>
+    {/* <li><Link href="#connect" className="hover:underline">Connect Us</Link></li> */}
+    {/* <li><Link href="#workshops" className="hover:underline">Workshop & Events</Link></li> */}
+    {/* <li><Link href="#collaborations" className="hover:underline">Collaborations</Link></li> */}
+    {/* <li><Link href="#technologies" className="hover:underline">Research & Development</Link></li> */}
+    <li><Link href="#contact" className="hover:text-[#f36f12]">Contact</Link></li>
         </ul>
       </div>
 
@@ -946,10 +1030,10 @@ show && (
         <h4 className="text-xl font-semibold mb-4"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>Contact Information</h4>
         <p className="mb-2"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>109, Vakkil New Street, Opposite of Bus stop, Simmakkal, Madurai</p>
         <p className="mb-2"  style={{ fontFamily: '"Times New Roman", Times, serif' }}>
-          <a href="mailto:s3research4@gmail.com" className="hover:text-[#f36f12]">s3research4@gmail.com</a>
+          <Link href="mailto:s3research4@gmail.com" className="hover:text-[#f36f12]">s3research4@gmail.com</Link>
         </p>
         <p className="mb-2" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
-          <a href="tel:+919789339435" className="hover:text-[#f36f12]">+919789339435</a>
+          <Link href="tel:+919789339435" className="hover:text-[#f36f12]">+919789339435</Link>
         </p>
       </div>
 
@@ -957,18 +1041,18 @@ show && (
       <div>
       <h4 className="text-xl font-semibold mb-4" style={{ fontFamily: '"Times New Roman", Times, serif' }}>Follow Us</h4>
       <div className="flex space-x-4">
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
+        <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
           <FontAwesomeIcon icon={faFacebookF} className="text-xl" />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
+        </Link>
+        <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
           <FontAwesomeIcon icon={faTwitter} className="text-xl" />
-        </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
+        </Link>
+        <Link href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
           <FontAwesomeIcon icon={faLinkedinIn} className="text-xl" />
-        </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
+        </Link>
+        <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f36f12]">
           <FontAwesomeIcon icon={faInstagram} className="text-xl" />
-        </a>
+        </Link>
       </div>
     </div>
     </div>

@@ -11,14 +11,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { X } from 'lucide-react';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import Navbars from './Nav';
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div>
       {/* Navbar */}
-      <nav className="bg-white text-white px-6 py-4 md:w-auto">
+      {/* <nav className="bg-white text-white px-6 py-4 md:w-auto">
       <div className="flex items-center justify-between">
-        {/* Logo */}
+   
         <div className="flex items-center">
           <Image
             src={logo} // replace with your logo path
@@ -29,7 +30,6 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Hamburger Icon for Mobile */}
         <button
           className="md:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -37,7 +37,6 @@ export default function Navbar() {
           {menuOpen ? <X size={28} /> : <FontAwesomeIcon icon={faBars} />}
         </button>
 
-        {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-6 text-lg">
           <li>
             <Link href="/" className="text-blue-400 hover:text-white">
@@ -55,7 +54,6 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Mobile Nav Links */}
       {menuOpen && (
         <ul className="md:hidden mt-4 space-y-4 text-lg">
           <li><Link href="/" className="text-blue-300 font-semibold hover:text-white">Home</Link></li>
@@ -69,8 +67,9 @@ export default function Navbar() {
           <li><Link href="#payments" className="hover:text-blue-300">Payments</Link></li>
         </ul>
       )}
-    </nav>
+    </nav> */}
 
+<Navbars/>
 
       {/* Content Below Navbar - Same BG Color */}
       <main className="bg-white text-white py-2 px-2">
