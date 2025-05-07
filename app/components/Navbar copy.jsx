@@ -16,64 +16,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div>
-      {/* Navbar */}
-      {/* <nav className="bg-white text-white px-6 py-4 md:w-auto">
-      <div className="flex items-center justify-between">
-   
-        <div className="flex items-center">
-          <Image
-            src={logo} // replace with your logo path
-            alt="S3 Logo"
-            width={150}
-            height={100}
-            className="mr-4"
-          />
-        </div>
-
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={28} /> : <FontAwesomeIcon icon={faBars} />}
-        </button>
-
-        <ul className="hidden md:flex space-x-6 text-lg">
-          <li>
-            <Link href="/" className="text-blue-400 hover:text-white">
-              Home
-            </Link>
-          </li>
-          <li><a href="#about" className="text-blue-500 hover:text-blue-300" >About</a></li>
-          <li><a href="#publications" className="text-blue-500 hover:text-blue-300">Publications</a></li>
-          <li><Link href="#connect" className=" text-blue-500 hover:text-blue-300">Connect Us</Link></li>
-          <li><Link href="#workshops" className="text-blue-500 hover:text-blue-300">Workshop & Events</Link></li>
-          <li><Link href="#collaborations" className="text-blue-500 hover:text-blue-300">Collaborations</Link></li>
-          <li><Link href="#technologies" className="text-blue-500 hover:text-blue-300">Research & Development</Link></li>
-          <li><Link href="#contact" className=" text-blue-500 hover:text-blue-300">Contact</Link></li>
-          <li><Link href="#payments" className="text-blue-500 hover:text-blue-300">Payments</Link></li>
-        </ul>
-      </div>
-
-      {menuOpen && (
-        <ul className="md:hidden mt-4 space-y-4 text-lg">
-          <li><Link href="/" className="text-blue-300 font-semibold hover:text-white">Home</Link></li>
-          <li><a href="#about" className="hover:text-blue-300">About</a></li>
-          <li><a href="#publications" className="hover:text-blue-300">Publications</a></li>
-          <li><Link href="#connect" className="hover:text-blue-300">Connect Us</Link></li>
-          <li><Link href="#workshops" className="hover:text-blue-300">Workshop & Events</Link></li>
-          <li><Link href="#collaborations" className="hover:text-blue-300">Collaborations</Link></li>
-          <li><Link href="#technologies" className="hover:text-blue-300">Research & Development</Link></li>
-          <li><Link href="#contact" className="hover:text-blue-300">Contact</Link></li>
-          <li><Link href="#payments" className="hover:text-blue-300">Payments</Link></li>
-        </ul>
-      )}
-    </nav> */}
-
 <Navbars/>
-
       {/* Content Below Navbar - Same BG Color */}
       <main className="bg-white text-white py-2 px-2">
-
         {/* Section with Image & Text */}
         <div className="mb-12 flex flex-col md:flex-row items-center px-4 md:px-10">
   {/* Left Side Text */}

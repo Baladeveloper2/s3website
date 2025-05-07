@@ -1,54 +1,44 @@
-'use client'; // Only if using app directory
+'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Link as ScrollLink } from 'react-scroll';
+
+
 import { X } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import logo from '@/public/logo.png'; // Adjust if your logo is in public folder
+import logo from '@/public/logo.png'; // Ensure path is correct
 
 const Navbars = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
   const isHome = router.pathname === '/';
 
   const menuItems = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', id: 'about' },
-    { name: 'Services', id: 'publications' },
-    { name: 'Connect Us', id: 'connect' },
-    { name: 'Events & Workshops', id: 'workshops' },
-    { name: 'Collaborate With Us', id: 'collaborations' },
-    { name: 'Research & Development', id: 'technologies' },
-    { name: 'Contact Us', id: 'contact' },
-    { name: 'Payments', id: 'payments' },
+    { name: 'About Us', hash: 'about' },
+    { name: 'Services', hash: 'publications' },
+    { name: 'Connect Us', hash: 'connect' },
+    { name: 'Events & Workshops', hash: 'workshops' },
+    { name: 'Collaborate With Us', hash: 'collaborations' },
+    { name: 'Research & Development', hash: 'technologies' },
+    { name: 'Contact Us', hash: 'contact' },
+    { name: 'Payments', hash: 'payments' },
   ];
 
   const renderNavItem = (item) => {
-    if (item.href) {
-      return (
-        <Link href={item.href} className="text-black hover:text-[#e55d00]">
-          {item.name}
-        </Link>
-      );
-    }
+    const linkHref = item.href
+      ? item.href
+      : isHome
+      ? `#${item.hash}`
+      : `/#${item.hash}`;
 
-    return isHome ? (
-      <ScrollLink
-        to={item.id}
-        smooth
-        duration={300}
-        offset={-80}
-        className="text-black hover:text-[#e55d00] cursor-pointer"
-      >
-        {item.name}
-      </ScrollLink>
-    ) : (
+    return (
       <Link
-        href={`/#${item.id}`}
+        href={linkHref}
+        scroll={true}
         className="text-black hover:text-[#e55d00]"
       >
         {item.name}
@@ -72,10 +62,7 @@ const Navbars = () => {
           </div>
 
           {/* Hamburger Icon */}
-          <button
-            className="md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
+          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? (
               <X size={28} className="text-black" />
             ) : (
