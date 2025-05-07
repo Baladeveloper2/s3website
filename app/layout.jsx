@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         rtl={false}
         draggable
         />
-        <Script id="tawk-chat" strategy="afterInteractive">
+        {/* <Script id="tawk-chat" strategy="afterInteractive">
           {`
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
               s0.parentNode.insertBefore(s1,s0);
             })();
           `}
-        </Script>
+        </Script> */}
       </body>
     </html>
   );
